@@ -1,0 +1,16 @@
+C:\Users\heman\onedrive\documents\visual studio 2010\Projects\WindowsApplication2\WindowsApplication2\obj\x86\Debug\WindowsApplication2.vbprojResolveAssemblyReference.cache
+C:\Users\heman\onedrive\documents\visual studio 2010\Projects\WindowsApplication2\WindowsApplication2\obj\x86\Debug\WindowsApplication1.Form1.resources
+C:\Users\heman\onedrive\documents\visual studio 2010\Projects\WindowsApplication2\WindowsApplication2\obj\x86\Debug\WindowsApplication1.Resources.resources
+C:\Users\heman\onedrive\documents\visual studio 2010\Projects\WindowsApplication2\WindowsApplication2\obj\x86\Debug\WindowsApplication2.vbproj.GenerateResource.Cache
+C:\Users\heman\onedrive\documents\visual studio 2010\Projects\WindowsApplication2\WindowsApplication2\bin\Debug\WindowsApplication2.exe
+C:\Users\heman\onedrive\documents\visual studio 2010\Projects\WindowsApplication2\WindowsApplication2\bin\Debug\WindowsApplication2.pdb
+C:\Users\heman\onedrive\documents\visual studio 2010\Projects\WindowsApplication2\WindowsApplication2\bin\Debug\WindowsApplication2.xml
+C:\Users\heman\onedrive\documents\visual studio 2010\Projects\WindowsApplication2\WindowsApplication2\obj\x86\Debug\WindowsApplication2.exe
+C:\Users\heman\onedrive\documents\visual studio 2010\Projects\WindowsApplication2\WindowsApplication2\obj\x86\Debug\WindowsApplication2.xml
+C:\Users\heman\onedrive\documents\visual studio 2010\Projects\WindowsApplication2\WindowsApplication2\obj\x86\Debug\WindowsApplication2.pdb
+C:\Users\heman\onedrive\documents\visual studio 2010\Projects\WindowsApplication2\WindowsApplication2\bin\Debug\WindowsApplication2.exe.config
+C:\Users\heman\onedrive\documents\visual studio 2010\Projects\WindowsApplication2\WindowsApplication2\bin\Debug\scadacomponent.dll
+C:\Users\heman\onedrive\documents\visual studio 2010\Projects\WindowsApplication2\WindowsApplication2\bin\Debug\AxInterop.ActUtlTypeLib.dll
+C:\Users\heman\onedrive\documents\visual studio 2010\Projects\WindowsApplication2\WindowsApplication2\bin\Debug\Interop.ActUtlTypeLib.dll
+C:\Users\heman\onedrive\documents\visual studio 2010\Projects\WindowsApplication2\WindowsApplication2\bin\Debug\scadacomponent.pdb
+C:\Users\heman\onedrive\documents\visual studio 2010\Projects\WindowsApplication2\WindowsApplication2\bin\Debug\scadacomponent.xml

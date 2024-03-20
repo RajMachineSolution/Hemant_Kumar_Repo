@@ -1,0 +1,9 @@
+C:\Users\heman\onedrive\documents\visual studio 2010\Projects\ScadaComponentRedev\ScadaComponentRedev\bin\Debug\ScadaComponentRedev.dll
+C:\Users\heman\onedrive\documents\visual studio 2010\Projects\ScadaComponentRedev\ScadaComponentRedev\bin\Debug\ScadaComponentRedev.pdb
+C:\Users\heman\onedrive\documents\visual studio 2010\Projects\ScadaComponentRedev\ScadaComponentRedev\bin\Debug\ScadaComponentRedev.xml
+C:\Users\heman\onedrive\documents\visual studio 2010\Projects\ScadaComponentRedev\ScadaComponentRedev\obj\Debug\ScadaComponentRedev.Login_Register.resources
+C:\Users\heman\onedrive\documents\visual studio 2010\Projects\ScadaComponentRedev\ScadaComponentRedev\obj\Debug\ScadaComponentRedev.Resources.resources
+C:\Users\heman\onedrive\documents\visual studio 2010\Projects\ScadaComponentRedev\ScadaComponentRedev\obj\Debug\ScadaComponentRedev.vbproj.GenerateResource.Cache
+C:\Users\heman\onedrive\documents\visual studio 2010\Projects\ScadaComponentRedev\ScadaComponentRedev\obj\Debug\ScadaComponentRedev.dll
+C:\Users\heman\onedrive\documents\visual studio 2010\Projects\ScadaComponentRedev\ScadaComponentRedev\obj\Debug\ScadaComponentRedev.xml
+C:\Users\heman\onedrive\documents\visual studio 2010\Projects\ScadaComponentRedev\ScadaComponentRedev\obj\Debug\ScadaComponentRedev.pdb
