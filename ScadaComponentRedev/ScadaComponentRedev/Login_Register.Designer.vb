@@ -28,7 +28,7 @@ Partial Class Login_Register
         Me.Label1 = New System.Windows.Forms.Label()
         Me.PassTxt = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.LoginButton = New System.Windows.Forms.Button()
+        Me.LoginBtn = New System.Windows.Forms.Button()
         Me.LoiginCheckBox = New System.Windows.Forms.CheckBox()
         Me.AddUserBtn = New System.Windows.Forms.Button()
         Me.EditUserBtn = New System.Windows.Forms.Button()
@@ -42,7 +42,7 @@ Partial Class Login_Register
         Me.Panel1.Controls.Add(Me.EditUserBtn)
         Me.Panel1.Controls.Add(Me.AddUserBtn)
         Me.Panel1.Controls.Add(Me.LoiginCheckBox)
-        Me.Panel1.Controls.Add(Me.LoginButton)
+        Me.Panel1.Controls.Add(Me.LoginBtn)
         Me.Panel1.Controls.Add(Me.PassTxt)
         Me.Panel1.Controls.Add(Me.Label3)
         Me.Panel1.Controls.Add(Me.UidTxt)
@@ -103,17 +103,17 @@ Partial Class Login_Register
         Me.Label3.TabIndex = 3
         Me.Label3.Text = "Password"
         '
-        'LoginButton
+        'LoginBtn
         '
-        Me.LoginButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.LoginButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LoginButton.ForeColor = System.Drawing.Color.White
-        Me.LoginButton.Location = New System.Drawing.Point(22, 179)
-        Me.LoginButton.Name = "LoginButton"
-        Me.LoginButton.Size = New System.Drawing.Size(251, 33)
-        Me.LoginButton.TabIndex = 5
-        Me.LoginButton.Text = "Login"
-        Me.LoginButton.UseVisualStyleBackColor = False
+        Me.LoginBtn.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.LoginBtn.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LoginBtn.ForeColor = System.Drawing.Color.White
+        Me.LoginBtn.Location = New System.Drawing.Point(22, 179)
+        Me.LoginBtn.Name = "LoginBtn"
+        Me.LoginBtn.Size = New System.Drawing.Size(251, 33)
+        Me.LoginBtn.TabIndex = 5
+        Me.LoginBtn.Text = "Login"
+        Me.LoginBtn.UseVisualStyleBackColor = False
         '
         'LoiginCheckBox
         '
@@ -179,7 +179,7 @@ Partial Class Login_Register
     Friend WithEvents EditUserBtn As System.Windows.Forms.Button
     Friend WithEvents AddUserBtn As System.Windows.Forms.Button
     Friend WithEvents LoiginCheckBox As System.Windows.Forms.CheckBox
-    Friend WithEvents LoginButton As System.Windows.Forms.Button
+    Friend WithEvents LoginBtn As System.Windows.Forms.Button
     Friend WithEvents PassTxt As System.Windows.Forms.TextBox
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Label4 As System.Windows.Forms.Label

@@ -49,6 +49,7 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ScadaComponentRedev, Version=1.0.8845.20332, Culture=neutral, PublicKeyToken=null" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -71,7 +72,19 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChangePassword.Designer.vb">
+      <DependentUpon>ChangePassword.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ChangePassword.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="EventList.vb" />
+    <Compile Include="LoginForm.Designer.vb">
+      <DependentUpon>LoginForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="LoginForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Application.myapp</DependentUpon>
@@ -93,10 +106,34 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="RegDetails.Designer.vb">
+      <DependentUpon>RegDetails.vb</DependentUpon>
+    </Compile>
+    <Compile Include="RegDetails.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Register.Designer.vb">
+      <DependentUpon>Register.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Register.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegisterDetails.Designer.vb">
+      <DependentUpon>RegisterDetails.vb</DependentUpon>
+    </Compile>
+    <Compile Include="RegisterDetails.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="SqlClass.vb" />
     <Compile Include="VariableClass.vb" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="ChangePassword.resx">
+      <DependentUpon>ChangePassword.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login_Register.resx">
       <DependentUpon>Login_Register.vb</DependentUpon>
     </EmbeddedResource>
@@ -105,6 +142,15 @@
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RegDetails.resx">
+      <DependentUpon>RegDetails.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Register.resx">
+      <DependentUpon>Register.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RegisterDetails.resx">
+      <DependentUpon>RegisterDetails.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

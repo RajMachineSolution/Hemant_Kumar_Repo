@@ -1,4 +1,3 @@
-C:\Users\heman\onedrive\documents\visual studio 2010\Projects\ScadaComponentRedev\ScadaComponentRedev\bin\Debug\ScadaComponentRedev.dll
 C:\Users\heman\onedrive\documents\visual studio 2010\Projects\ScadaComponentRedev\ScadaComponentRedev\bin\Debug\ScadaComponentRedev.pdb
 C:\Users\heman\onedrive\documents\visual studio 2010\Projects\ScadaComponentRedev\ScadaComponentRedev\bin\Debug\ScadaComponentRedev.xml
 C:\Users\heman\onedrive\documents\visual studio 2010\Projects\ScadaComponentRedev\ScadaComponentRedev\obj\Debug\ScadaComponentRedev.Login_Register.resources
@@ -7,3 +6,9 @@ C:\Users\heman\onedrive\documents\visual studio 2010\Projects\ScadaComponentRede
 C:\Users\heman\onedrive\documents\visual studio 2010\Projects\ScadaComponentRedev\ScadaComponentRedev\obj\Debug\ScadaComponentRedev.dll
 C:\Users\heman\onedrive\documents\visual studio 2010\Projects\ScadaComponentRedev\ScadaComponentRedev\obj\Debug\ScadaComponentRedev.xml
 C:\Users\heman\onedrive\documents\visual studio 2010\Projects\ScadaComponentRedev\ScadaComponentRedev\obj\Debug\ScadaComponentRedev.pdb
+C:\Users\heman\onedrive\documents\visual studio 2010\Projects\ScadaComponentRedev\ScadaComponentRedev\obj\Debug\ScadaComponentRedev.ChangePassword.resources
+C:\Users\heman\onedrive\documents\visual studio 2010\Projects\ScadaComponentRedev\ScadaComponentRedev\obj\Debug\ScadaComponentRedev.LoginForm.resources
+C:\Users\heman\onedrive\documents\visual studio 2010\Projects\ScadaComponentRedev\ScadaComponentRedev\obj\Debug\ScadaComponentRedev.RegDetails.resources
+C:\Users\heman\onedrive\documents\visual studio 2010\Projects\ScadaComponentRedev\ScadaComponentRedev\obj\Debug\ScadaComponentRedev.Register.resources
+C:\Users\heman\onedrive\documents\visual studio 2010\Projects\ScadaComponentRedev\ScadaComponentRedev\obj\Debug\ScadaComponentRedev.RegisterDetails.resources
+C:\Users\heman\onedrive\documents\visual studio 2010\Projects\ScadaComponentRedev\ScadaComponentRedev\obj\Debug\ScadaComponentRedev.vbprojResolveAssemblyReference.cache
