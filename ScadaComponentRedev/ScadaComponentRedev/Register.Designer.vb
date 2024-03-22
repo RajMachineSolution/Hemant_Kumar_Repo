@@ -23,22 +23,24 @@ Partial Class Register
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.FullNameTxt = New System.Windows.Forms.TextBox()
-        Me.LevelCmboBx = New System.Windows.Forms.ComboBox()
-        Me.RegisterBtn = New System.Windows.Forms.Button()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.LoginBtn = New System.Windows.Forms.Button()
+        Me.txtname = New System.Windows.Forms.TextBox()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.btnRRegister = New System.Windows.Forms.Button()
+        Me.lblnewreg = New System.Windows.Forms.Label()
+        Me.btnRLogin = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.Uidtxt = New System.Windows.Forms.TextBox()
+        Me.txtid = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.ConfUidtxt = New System.Windows.Forms.TextBox()
+        Me.txtcid = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.Passtxt = New System.Windows.Forms.TextBox()
+        Me.txtpass = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.ConfPassTxt = New System.Windows.Forms.TextBox()
+        Me.txtcpass = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -54,52 +56,55 @@ Partial Class Register
         Me.Label2.TabIndex = 1
         Me.Label2.Text = "Full Name"
         '
-        'FullNameTxt
+        'txtname
         '
-        Me.FullNameTxt.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.FullNameTxt.Location = New System.Drawing.Point(26, 76)
-        Me.FullNameTxt.Name = "FullNameTxt"
-        Me.FullNameTxt.Size = New System.Drawing.Size(335, 26)
-        Me.FullNameTxt.TabIndex = 2
+        Me.txtname.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtname.Location = New System.Drawing.Point(26, 76)
+        Me.txtname.Name = "txtname"
+        Me.txtname.Size = New System.Drawing.Size(335, 26)
+        Me.txtname.TabIndex = 2
         '
-        'LevelCmboBx
+        'ComboBox1
         '
-        Me.LevelCmboBx.FormattingEnabled = True
-        Me.LevelCmboBx.Location = New System.Drawing.Point(26, 382)
-        Me.LevelCmboBx.Name = "LevelCmboBx"
-        Me.LevelCmboBx.Size = New System.Drawing.Size(335, 21)
-        Me.LevelCmboBx.TabIndex = 3
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Location = New System.Drawing.Point(26, 409)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(335, 21)
+        Me.ComboBox1.TabIndex = 3
         '
-        'RegisterBtn
+        'btnRRegister
         '
-        Me.RegisterBtn.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.RegisterBtn.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RegisterBtn.ForeColor = System.Drawing.Color.White
-        Me.RegisterBtn.Location = New System.Drawing.Point(26, 440)
-        Me.RegisterBtn.Name = "RegisterBtn"
-        Me.RegisterBtn.Size = New System.Drawing.Size(335, 38)
-        Me.RegisterBtn.TabIndex = 4
-        Me.RegisterBtn.Text = "Register"
-        Me.RegisterBtn.UseVisualStyleBackColor = False
+        Me.btnRRegister.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.btnRRegister.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnRRegister.ForeColor = System.Drawing.Color.White
+        Me.btnRRegister.Location = New System.Drawing.Point(26, 454)
+        Me.btnRRegister.Name = "btnRRegister"
+        Me.btnRRegister.Size = New System.Drawing.Size(335, 32)
+        Me.btnRRegister.TabIndex = 4
+        Me.btnRRegister.Text = "Register"
+        Me.btnRRegister.UseVisualStyleBackColor = False
         '
-        'Label3
+        'lblnewreg
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.Label3.Location = New System.Drawing.Point(148, 501)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(96, 13)
-        Me.Label3.TabIndex = 5
-        Me.Label3.Text = "Already Registered"
+        Me.lblnewreg.AutoSize = True
+        Me.lblnewreg.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.lblnewreg.Location = New System.Drawing.Point(148, 504)
+        Me.lblnewreg.Name = "lblnewreg"
+        Me.lblnewreg.Size = New System.Drawing.Size(96, 13)
+        Me.lblnewreg.TabIndex = 5
+        Me.lblnewreg.Text = "Already Registered"
         '
-        'LoginBtn
+        'btnRLogin
         '
-        Me.LoginBtn.Location = New System.Drawing.Point(116, 520)
-        Me.LoginBtn.Name = "LoginBtn"
-        Me.LoginBtn.Size = New System.Drawing.Size(156, 27)
-        Me.LoginBtn.TabIndex = 6
-        Me.LoginBtn.Text = "Login"
-        Me.LoginBtn.UseVisualStyleBackColor = True
+        Me.btnRLogin.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.btnRLogin.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnRLogin.ForeColor = System.Drawing.Color.White
+        Me.btnRLogin.Location = New System.Drawing.Point(116, 519)
+        Me.btnRLogin.Name = "btnRLogin"
+        Me.btnRLogin.Size = New System.Drawing.Size(156, 35)
+        Me.btnRLogin.TabIndex = 6
+        Me.btnRLogin.Text = "Login"
+        Me.btnRLogin.UseVisualStyleBackColor = False
         '
         'Panel1
         '
@@ -121,13 +126,13 @@ Partial Class Register
         Me.Label1.Text = "Register"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'Uidtxt
+        'txtid
         '
-        Me.Uidtxt.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Uidtxt.Location = New System.Drawing.Point(26, 133)
-        Me.Uidtxt.Name = "Uidtxt"
-        Me.Uidtxt.Size = New System.Drawing.Size(335, 26)
-        Me.Uidtxt.TabIndex = 9
+        Me.txtid.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtid.Location = New System.Drawing.Point(26, 133)
+        Me.txtid.Name = "txtid"
+        Me.txtid.Size = New System.Drawing.Size(335, 26)
+        Me.txtid.TabIndex = 9
         '
         'Label4
         '
@@ -141,13 +146,13 @@ Partial Class Register
         Me.Label4.TabIndex = 8
         Me.Label4.Text = "User Id"
         '
-        'ConfUidtxt
+        'txtcid
         '
-        Me.ConfUidtxt.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ConfUidtxt.Location = New System.Drawing.Point(26, 193)
-        Me.ConfUidtxt.Name = "ConfUidtxt"
-        Me.ConfUidtxt.Size = New System.Drawing.Size(335, 26)
-        Me.ConfUidtxt.TabIndex = 11
+        Me.txtcid.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtcid.Location = New System.Drawing.Point(26, 212)
+        Me.txtcid.Name = "txtcid"
+        Me.txtcid.Size = New System.Drawing.Size(335, 26)
+        Me.txtcid.TabIndex = 11
         '
         'Label5
         '
@@ -155,19 +160,19 @@ Partial Class Register
         Me.Label5.BackColor = System.Drawing.SystemColors.Control
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.Color.Green
-        Me.Label5.Location = New System.Drawing.Point(31, 172)
+        Me.Label5.Location = New System.Drawing.Point(31, 191)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(96, 16)
         Me.Label5.TabIndex = 10
         Me.Label5.Text = "Confirm UserId"
         '
-        'Passtxt
+        'txtpass
         '
-        Me.Passtxt.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Passtxt.Location = New System.Drawing.Point(26, 260)
-        Me.Passtxt.Name = "Passtxt"
-        Me.Passtxt.Size = New System.Drawing.Size(335, 26)
-        Me.Passtxt.TabIndex = 13
+        Me.txtpass.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtpass.Location = New System.Drawing.Point(26, 268)
+        Me.txtpass.Name = "txtpass"
+        Me.txtpass.Size = New System.Drawing.Size(335, 26)
+        Me.txtpass.TabIndex = 13
         '
         'Label6
         '
@@ -175,19 +180,19 @@ Partial Class Register
         Me.Label6.BackColor = System.Drawing.SystemColors.Control
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.ForeColor = System.Drawing.Color.Green
-        Me.Label6.Location = New System.Drawing.Point(31, 239)
+        Me.Label6.Location = New System.Drawing.Point(31, 247)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(68, 16)
         Me.Label6.TabIndex = 12
         Me.Label6.Text = "Password"
         '
-        'ConfPassTxt
+        'txtcpass
         '
-        Me.ConfPassTxt.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ConfPassTxt.Location = New System.Drawing.Point(26, 320)
-        Me.ConfPassTxt.Name = "ConfPassTxt"
-        Me.ConfPassTxt.Size = New System.Drawing.Size(335, 26)
-        Me.ConfPassTxt.TabIndex = 15
+        Me.txtcpass.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtcpass.Location = New System.Drawing.Point(26, 341)
+        Me.txtcpass.Name = "txtcpass"
+        Me.txtcpass.Size = New System.Drawing.Size(335, 26)
+        Me.txtcpass.TabIndex = 15
         '
         'Label7
         '
@@ -195,7 +200,7 @@ Partial Class Register
         Me.Label7.BackColor = System.Drawing.SystemColors.Control
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.ForeColor = System.Drawing.Color.Green
-        Me.Label7.Location = New System.Drawing.Point(31, 299)
+        Me.Label7.Location = New System.Drawing.Point(31, 320)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(116, 16)
         Me.Label7.TabIndex = 14
@@ -207,32 +212,54 @@ Partial Class Register
         Me.Label8.BackColor = System.Drawing.SystemColors.Control
         Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label8.ForeColor = System.Drawing.Color.Green
-        Me.Label8.Location = New System.Drawing.Point(31, 361)
+        Me.Label8.Location = New System.Drawing.Point(31, 388)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(85, 16)
         Me.Label8.TabIndex = 16
         Me.Label8.Text = "Assign Level"
         '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(32, 297)
+        Me.Label9.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(39, 13)
+        Me.Label9.TabIndex = 17
+        Me.Label9.Text = "Label3"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(35, 162)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(39, 13)
+        Me.Label3.TabIndex = 18
+        Me.Label3.Text = "Label3"
+        '
         'Register
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(387, 559)
+        Me.ClientSize = New System.Drawing.Size(387, 575)
+        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.Label8)
-        Me.Controls.Add(Me.ConfPassTxt)
+        Me.Controls.Add(Me.txtcpass)
         Me.Controls.Add(Me.Label7)
-        Me.Controls.Add(Me.Passtxt)
+        Me.Controls.Add(Me.txtpass)
         Me.Controls.Add(Me.Label6)
-        Me.Controls.Add(Me.ConfUidtxt)
+        Me.Controls.Add(Me.txtcid)
         Me.Controls.Add(Me.Label5)
-        Me.Controls.Add(Me.Uidtxt)
+        Me.Controls.Add(Me.txtid)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Panel1)
-        Me.Controls.Add(Me.LoginBtn)
-        Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.RegisterBtn)
-        Me.Controls.Add(Me.LevelCmboBx)
-        Me.Controls.Add(Me.FullNameTxt)
+        Me.Controls.Add(Me.btnRLogin)
+        Me.Controls.Add(Me.lblnewreg)
+        Me.Controls.Add(Me.btnRRegister)
+        Me.Controls.Add(Me.ComboBox1)
+        Me.Controls.Add(Me.txtname)
         Me.Controls.Add(Me.Label2)
         Me.Name = "Register"
         Me.Text = "Register"
@@ -242,20 +269,22 @@ Partial Class Register
 
     End Sub
     Friend WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents FullNameTxt As System.Windows.Forms.TextBox
-    Friend WithEvents LevelCmboBx As System.Windows.Forms.ComboBox
-    Friend WithEvents RegisterBtn As System.Windows.Forms.Button
-    Friend WithEvents Label3 As System.Windows.Forms.Label
-    Friend WithEvents LoginBtn As System.Windows.Forms.Button
+    Friend WithEvents txtname As System.Windows.Forms.TextBox
+    Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
+    Friend WithEvents btnRRegister As System.Windows.Forms.Button
+    Friend WithEvents lblnewreg As System.Windows.Forms.Label
+    Friend WithEvents btnRLogin As System.Windows.Forms.Button
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
     Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents Uidtxt As System.Windows.Forms.TextBox
+    Friend WithEvents txtid As System.Windows.Forms.TextBox
     Friend WithEvents Label4 As System.Windows.Forms.Label
-    Friend WithEvents ConfUidtxt As System.Windows.Forms.TextBox
+    Friend WithEvents txtcid As System.Windows.Forms.TextBox
     Friend WithEvents Label5 As System.Windows.Forms.Label
-    Friend WithEvents Passtxt As System.Windows.Forms.TextBox
+    Friend WithEvents txtpass As System.Windows.Forms.TextBox
     Friend WithEvents Label6 As System.Windows.Forms.Label
-    Friend WithEvents ConfPassTxt As System.Windows.Forms.TextBox
+    Friend WithEvents txtcpass As System.Windows.Forms.TextBox
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents Label8 As System.Windows.Forms.Label
+    Friend WithEvents Label9 As System.Windows.Forms.Label
+    Friend WithEvents Label3 As System.Windows.Forms.Label
 End Class

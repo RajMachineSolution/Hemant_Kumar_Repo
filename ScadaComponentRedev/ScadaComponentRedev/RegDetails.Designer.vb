@@ -23,6 +23,9 @@ Partial Class RegDetails
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.Label7 = New System.Windows.Forms.Label()
         Me.ConfPassTxt = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.PassTxt = New System.Windows.Forms.TextBox()
@@ -40,9 +43,6 @@ Partial Class RegDetails
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.Label9 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.SuspendLayout()
@@ -74,6 +74,39 @@ Partial Class RegDetails
         Me.Panel1.Size = New System.Drawing.Size(385, 575)
         Me.Panel1.TabIndex = 0
         '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.ForeColor = System.Drawing.SystemColors.AppWorkspace
+        Me.Label9.Location = New System.Drawing.Point(41, 305)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(258, 13)
+        Me.Label9.TabIndex = 18
+        Me.Label9.Text = "* Password- Alphanumeric and minumum * characters"
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.ForeColor = System.Drawing.SystemColors.AppWorkspace
+        Me.Label8.Location = New System.Drawing.Point(42, 152)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(220, 13)
+        Me.Label8.TabIndex = 17
+        Me.Label8.Text = "* User ID should have minumum 6 characters"
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.ForeColor = System.Drawing.Color.Green
+        Me.Label7.Location = New System.Drawing.Point(34, 177)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(90, 18)
+        Me.Label7.TabIndex = 16
+        Me.Label7.Text = "Assign Level"
+        '
         'ConfPassTxt
         '
         Me.ConfPassTxt.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -96,7 +129,7 @@ Partial Class RegDetails
         'PassTxt
         '
         Me.PassTxt.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.PassTxt.Location = New System.Drawing.Point(33, 280)
+        Me.PassTxt.Location = New System.Drawing.Point(33, 276)
         Me.PassTxt.Name = "PassTxt"
         Me.PassTxt.Size = New System.Drawing.Size(324, 26)
         Me.PassTxt.TabIndex = 13
@@ -115,7 +148,7 @@ Partial Class RegDetails
         'fullNameTxt
         '
         Me.fullNameTxt.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.fullNameTxt.Location = New System.Drawing.Point(29, 131)
+        Me.fullNameTxt.Location = New System.Drawing.Point(29, 123)
         Me.fullNameTxt.Name = "fullNameTxt"
         Me.fullNameTxt.Size = New System.Drawing.Size(324, 26)
         Me.fullNameTxt.TabIndex = 11
@@ -125,7 +158,7 @@ Partial Class RegDetails
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.Color.Green
-        Me.Label4.Location = New System.Drawing.Point(30, 105)
+        Me.Label4.Location = New System.Drawing.Point(30, 101)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(75, 18)
         Me.Label4.TabIndex = 10
@@ -245,39 +278,6 @@ Partial Class RegDetails
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Registered Details"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.ForeColor = System.Drawing.Color.Green
-        Me.Label7.Location = New System.Drawing.Point(34, 177)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(90, 18)
-        Me.Label7.TabIndex = 16
-        Me.Label7.Text = "Assign Level"
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.ForeColor = System.Drawing.SystemColors.AppWorkspace
-        Me.Label8.Location = New System.Drawing.Point(42, 160)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(220, 13)
-        Me.Label8.TabIndex = 17
-        Me.Label8.Text = "* User ID should have minumum 6 characters"
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.ForeColor = System.Drawing.SystemColors.AppWorkspace
-        Me.Label9.Location = New System.Drawing.Point(41, 309)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(258, 13)
-        Me.Label9.TabIndex = 18
-        Me.Label9.Text = "* Password- Alphanumeric and minumum * characters"
         '
         'RegDetails
         '
