@@ -4,6 +4,21 @@ Public Class ChangePassword
     Dim eventList As New EventList
     Dim x = 0, y = 0
 
+    Sub New(tempx, tempy)
+        x = tempx
+        y = tempy
+
+        InitializeComponent()
+    End Sub
+
+    Sub New()
+
+        ' This call is required by the designer.
+        InitializeComponent()
+
+        ' Add any initialization after the InitializeComponent() call.
+
+    End Sub
     Private Sub Button2_Click(sender As System.Object, e As System.EventArgs) Handles Button2.Click
         Dim sql As New SqlClass
         Try
@@ -56,6 +71,24 @@ Public Class ChangePassword
             Else
                 Label18.ForeColor = Color.Red
             End If
+        End If
+    End Sub
+
+    Private Function IsAlphaNum(ByVal strInputText As String) As Boolean
+        ' Return System.Text.RegularExpressions.Regex.IsMatch(strInputText, "(?!^[0-9]*$)(?!^[a-zA-Z]*$)^([a-zA-Z0-9]{" & Login_Register.passlen & ",50})$")
+        Return System.Text.RegularExpressions.Regex.IsMatch(strInputText, "^.*(?=.*[a-zA-Z])(?=.*\d)(?=.*[\.@_-`~!@#$%^&*()_+={}\[\]\\|:;""'<>,.?/-]){" & Login_Register.passlen & ",50}.*$")
+    End Function
+
+    Private Sub ChangePassword_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+        Me.StartPosition = FormStartPosition.CenterParent
+        Label18.Text = "*Password- Alphanumeric and Special and Minimum " & Login_Register.passLen & " characters"
+    End Sub
+
+    Private Sub TextBoxconfirmnewpass_TextChanged(sender As System.Object, e As System.EventArgs) Handles TextBoxconfirmnewpass.TextChanged
+        If TextBoxnewpass.Text = TextBoxconfirmnewpass.Text Then
+            Label19.Text = ""
+        Else
+            Label19.Text = "Password and Confirm Password do not match"
         End If
     End Sub
 End Class

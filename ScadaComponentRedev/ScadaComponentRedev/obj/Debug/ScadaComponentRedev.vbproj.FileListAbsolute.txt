@@ -11,5 +11,5 @@ C:\Users\heman\onedrive\documents\visual studio 2010\Projects\ScadaComponentRede
 C:\Users\heman\onedrive\documents\visual studio 2010\Projects\ScadaComponentRedev\ScadaComponentRedev\obj\Debug\ScadaComponentRedev.RegDetails.resources
 C:\Users\heman\onedrive\documents\visual studio 2010\Projects\ScadaComponentRedev\ScadaComponentRedev\obj\Debug\ScadaComponentRedev.Register.resources
 C:\Users\heman\onedrive\documents\visual studio 2010\Projects\ScadaComponentRedev\ScadaComponentRedev\obj\Debug\ScadaComponentRedev.RegisterDetails.resources
-C:\Users\heman\onedrive\documents\visual studio 2010\Projects\ScadaComponentRedev\ScadaComponentRedev\obj\Debug\ScadaComponentRedev.vbprojResolveAssemblyReference.cache
 C:\Users\heman\onedrive\documents\visual studio 2010\Projects\ScadaComponentRedev\ScadaComponentRedev\bin\Debug\ScadaComponentRedev.dll
+C:\Users\heman\onedrive\documents\visual studio 2010\Projects\ScadaComponentRedev\ScadaComponentRedev\obj\Debug\ScadaComponentRedev.vbprojResolveAssemblyReference.cache

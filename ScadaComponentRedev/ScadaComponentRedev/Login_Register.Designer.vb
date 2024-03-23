@@ -22,6 +22,7 @@ Partial Class Login_Register
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.Button3 = New System.Windows.Forms.Button()
@@ -33,6 +34,7 @@ Partial Class Login_Register
         Me.txtLid = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -114,6 +116,7 @@ Partial Class Login_Register
         Me.txtLpass.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtLpass.Location = New System.Drawing.Point(22, 135)
         Me.txtLpass.Name = "txtLpass"
+        Me.txtLpass.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.txtLpass.Size = New System.Drawing.Size(251, 26)
         Me.txtLpass.TabIndex = 4
         '
@@ -159,12 +162,15 @@ Partial Class Login_Register
         Me.Label1.Text = "Welcome"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
+        'Timer1
+        '
+        '
         'Login_Register
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.Controls.Add(Me.Panel1)
-        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "Login_Register"
         Me.Size = New System.Drawing.Size(303, 347)
         Me.Panel1.ResumeLayout(False)
@@ -183,5 +189,6 @@ Partial Class Login_Register
     Friend WithEvents txtLpass As System.Windows.Forms.TextBox
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Label11 As System.Windows.Forms.Label
+    Friend WithEvents Timer1 As System.Windows.Forms.Timer
 
 End Class

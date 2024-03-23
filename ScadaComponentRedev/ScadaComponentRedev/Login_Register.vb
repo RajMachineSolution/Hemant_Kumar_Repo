@@ -3,6 +3,7 @@ Imports System.Data.SqlClient
 Imports System.Globalization
 
 Public Class Login_Register
+    Implements IMessageFilter
     Public Shared SecondsCount As Integer = 0
     Public Shared server = ".\SQLEXPRESS", dbname = "ScadaNewDB", dbid = "rmsview", dbpass = "rmsview"
     Public Shared empid, Fname, plevel As String
@@ -296,8 +297,232 @@ Category("Adminstrator Rights")> _
         End Set
     End Property
 
-    Private Sub LoginBtn_Click(sender As System.Object, e As System.EventArgs) Handles btnLlogin.Click
+    Private Sub btnLlogin_Click(sender As System.Object, e As System.EventArgs) Handles btnLlogin.Click
         login()
+    End Sub
+
+    Private Sub btnLReg_Click(sender As System.Object, e As System.EventArgs) Handles btnLReg.Click
+        If empid = -1 Then
+            MsgBox("Please login again to continue")
+            Exit Sub
+        End If
+        Dim reg As New Register
+        reg.TopMost = True
+        reg.StartPosition = FormStartPosition.CenterParent
+        reg.ShowDialog()
+    End Sub
+
+    Private Function IsAlphaNum(ByVal strInputText As String) As Boolean
+        Return System.Text.RegularExpressions.Regex.IsMatch(strInputText, "(?!^[0-9]*$)(?!^[a-zA-Z]*$)^([a-zA-Z0-9]{8,50})$")
+    End Function
+
+    Public Shared mngr As Integer
+    Private Sub RegistrationControl_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        checkvalueforlogincheckbox()
+        txtLid.Text = ""
+        txtLpass.Text = ""
+
+        btnLReg.Visible = False
+        Button3.Visible = False
+        Label11.Visible = False
+        Dim sql As New SqlClass
+        SqlClass.database = dbname
+
+        If SqlClass.database <> "" And SqlClass.server <> "" Then
+            Dim query1 As String = "OPEN SYMMETRIC KEY SymmetricKey1 DECRYPTION BY CERTIFICATE Certificate1 Select levelid from leveldetails where CONVERT(varchar, DecryptByKey(levelname))='" & tempAdminRights & "'"
+            sql.scon1()
+            Dim sqlcmd1 As SqlCommand = New SqlCommand(query1, sql.scn1)
+
+            Dim reader As SqlDataReader = sqlcmd1.ExecuteReader
+
+            'Dim i = 0, j = 0
+            If reader.Read Then
+                mngr = reader.Item(0)
+            End If
+            reader.Close()
+            sqlcmd1.Dispose()
+            sql.scn1.Close()
+        End If
+    End Sub
+
+    Private Sub deactivate(ByVal id As Integer)
+        Dim sql As New SqlClass
+
+        Try
+
+            Dim query As String = "OPEN SYMMETRIC KEY SymmetricKey1 DECRYPTION BY CERTIFICATE Certificate1 update  employeeinfo set active=2 where empid='" & id & "'"
+            sql.scon1()
+            Using sqlcmd As SqlCommand = New SqlCommand(query, sql.scn1)
+
+                sqlcmd.ExecuteNonQuery()
+            End Using
+            sql.scn1.Close()
+            evntlist.insertscadaevent(empid, "USER DEACTIVATED", "", "", "", "", "", "", "", "", "", "", "Audittrail")
+
+        Catch ex As Exception
+
+        End Try
+    End Sub
+
+    Public Function PreFilterMessage(ByRef m As System.Windows.Forms.Message) As Boolean Implements System.Windows.Forms.IMessageFilter.PreFilterMessage
+
+        'Check for mouse movements and / or clicks
+        Dim mouse As Boolean = (m.Msg >= &H200 And m.Msg <= &H20D) Or (m.Msg >= &HA0 And m.Msg <= &HAD)
+
+        'Check for keyboard button presses
+        Dim kbd As Boolean = (m.Msg >= &H100 And m.Msg <= &H109)
+
+        If mouse Or kbd Then 'if any of these events occur
+            '  If Not Timer1.Enabled Then MessageBox.Show("Waking up") 'wake up
+
+            Timer1.Stop()
+            SecondsCount = 0
+            Timer1.Start()
+
+            '  Return True
+
+            'Else
+            ' Return False
+        End If
+    End Function
+
+    Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer1.Tick
+
+        SecondsCount += 1 'Increment
+
+        If SecondsCount > 30 Then 'Two minutes have passed since being active
+            Timer1.Stop()
+            MessageBox.Show("Program has been inactive for 2 minutes…. Exiting Now…. Cheers!")
+            Application.Exit()
+        End If
+    End Sub
+
+    Public Sub userlevelinsert(ByVal ulevel As String()) ' multiple functionality is done by this method
+        Dim sql As New sqlclass
+        Dim templevelname As String() = {}
+        Try
+            If sqlclass.server <> "" And sqlclass.dbname <> "" Then
+                Dim query As String = "OPEN SYMMETRIC KEY SymmetricKey1 DECRYPTION BY CERTIFICATE Certificate1 Select CONVERT(varchar, DecryptByKey(levelname)) as levelname from leveldetails where levelid<>1 order by levelid asc "
+                sql.scon1()
+                Dim sqlcmd As SqlCommand = New SqlCommand(query, sql.scn1)
+
+                Dim reader As SqlDataReader = sqlcmd.ExecuteReader
+                Dim i = 0, j = 0
+                While reader.Read
+                    ReDim Preserve templevelname(i)
+                    templevelname(i) = reader.Item(0)
+
+                    i = i + 1
+
+                End While
+                sqlcmd.Dispose()
+                reader.Close()
+                Dim count = 0
+                If i = 0 Then
+                    For j = 0 To ulevel.Length - 1
+                        If Userlevel(j).Length = 0 Or Userlevel(j) = Nothing Then
+
+                        Else
+
+                            query = "OPEN SYMMETRIC KEY SymmetricKey1 DECRYPTION BY CERTIFICATE Certificate1 insert into leveldetails(levelname) values(EncryptByKey( Key_GUID('SymmetricKey1'), CONVERT(varchar,'" & Userlevel(j) & "') ))"
+                            '        sql.con1()
+                            Dim sqlcmd1 As SqlCommand = New SqlCommand(query, sql.scn1)
+                            evntlist.insertscadaevent(-1, "NEW USERLEVEL", "", "LEVEL=" + Userlevel(j), "", "", "", "", "", "", "", "", "Audittrail")
+
+                            sqlcmd1.ExecuteNonQuery()
+
+                            sqlcmd1.Dispose()
+                        End If
+                    Next
+                    user_level = templevelname
+                    Exit Sub
+                End If
+                If Userlevel.Length < i Then
+
+
+                    For j = 0 To ulevel.Length - 1
+                        If templevelname.Contains(Userlevel(j)) Then
+
+                        Else
+                          
+                        End If
+                    Next
+                End If
+                If Userlevel.Length > i Then
+
+
+                    For j = 0 To ulevel.Length - 1
+                        If templevelname.Contains(Userlevel(j)) Then
+
+                        Else
+                            query = "OPEN SYMMETRIC KEY SymmetricKey1 DECRYPTION BY CERTIFICATE Certificate1 insert into leveldetails(levelname) values(EncryptByKey( Key_GUID('SymmetricKey1'), CONVERT(varchar,'" & Userlevel(j) & "') ))"
+                            '        sql.con1()
+                            Dim sqlcmd1 As SqlCommand = New SqlCommand(query, sql.scn1)
+                            evntlist.insertscadaevent(-1, "NEW USERLEVEL", "", "LEVEL=" + Userlevel(j), "", "", "", "", "", "", "", "", "Audittrail")
+
+                            sqlcmd1.ExecuteNonQuery()
+                            sqlcmd1.Dispose()
+
+                        End If
+                    Next
+                End If
+
+                If Userlevel.Length = i Then
+
+
+                    For j = 0 To ulevel.Length - 1
+                        If templevelname(j) = Userlevel(j) Then
+
+                        Else
+
+                            query = "OPEN SYMMETRIC KEY SymmetricKey1 DECRYPTION BY CERTIFICATE Certificate1 update leveldetails set levelname=EncryptByKey( Key_GUID('SymmetricKey1'), CONVERT(varchar,'" & Userlevel(j) & "') ) where CONVERT(varchar, DecryptByKey(levelname)) ='" & templevelname(j) & "' "
+
+                            Dim sqlcmd1 As SqlCommand = New SqlCommand(query, sql.scn1)
+                            evntlist.insertscadaevent(-1, "USERLEVEL CHANGED", "", "From=" + templevelname(j) & " To=" + Userlevel(j), "", "", "", "", "", "", "", "", "Audittrail")
+                            sqlcmd1.ExecuteNonQuery()
+                            sqlcmd1.Dispose()
+
+                        End If
+                    Next
+                End If
+                sql.scn1.Close()
+
+                If Userlevel.Length = 0 Then 
+                    user_level = templevelname
+                
+                End If
+            End If
+        Catch ex As Exception
+        End Try
+
+    End Sub
+
+    Private Sub Button3_Click(sender As System.Object, e As System.EventArgs) Handles Button3.Click
+        If empid = -1 Then
+            MsgBox("Please login again to continue!")
+            Exit Sub
+        End If
+        If plevel = 1 Or plevel = mngr Then
+            Dim tempregdetails As New RegisterDetails
+            tempregdetails.TopMost = True
+            tempregdetails.StartPosition = FormStartPosition.CenterParent
+
+            tempregdetails.tempregister = tempregdetails
+            tempregdetails.filldata()
+            tempregdetails.ShowDialog()
+        Else
+            Dim chang As New ChangePassword(Me.Location.X, Me.Location.Y)
+            chang.TopMost = True
+            chang.TextBoxconfirmnewpass.Text = ""
+            chang.TextBoxnewpass.Text = ""
+            chang.Label19.Text = ""
+            chang.Label18.ForeColor = Color.Silver
+            chang.StartPosition = FormStartPosition.CenterParent
+            chang.FormBorderStyle = Windows.Forms.FormBorderStyle.None
+            chang.ShowDialog()
+
+        End If
+
     End Sub
 
     Sub login()
@@ -320,11 +545,7 @@ Category("Adminstrator Rights")> _
                     tryLoginCount = 0
                 End If
                 If reader.Read Then
-                    If tryLoginCount >= 4 Then
-                        deactivate(reader.Item(0))
-                        tryLoginCount = 0
-                        Exit Sub
-                    End If
+                   
                     empid = reader(0)
                     Fname = reader(1)
                     plevel = reader(2)
@@ -389,6 +610,14 @@ Category("Adminstrator Rights")> _
                         Me.Parent.Hide()
                     End If
                 Else
+
+                    If tryLoginCount >= 4 Then
+                        deactivate(empid)
+                        MessageBox.Show("Deactivate", uid)
+                        tryLoginCount = 0
+                        Exit Sub
+                    End If
+
                     tryLoginCount = tryLoginCount + 1
                     evntlist.insertscadaevent(-1, "INVALID LOGIN", "USER ID+" + uid, "USER ID+" + uid, "", "", "", "", "", "", "", "", "Audittrail")
                     RaiseEvent Logon(2, "Default Login", 2)
@@ -411,61 +640,8 @@ Category("Adminstrator Rights")> _
 
     End Sub
 
-    Private Sub deactivate(ByVal id As Integer)
-        Dim sql As New SqlClass
-
-        Try
-
-            Dim query As String = "OPEN SYMMETRIC KEY SymmetricKey1 DECRYPTION BY CERTIFICATE Certificate1 update  employeeinfo set active=2 where empid='" & id & "'"
-            sql.scon1()
-            Dim sqlcmd As SqlCommand = New SqlCommand(query, sql.scn1)
-
-            sqlcmd.ExecuteNonQuery()
-            sqlcmd.Dispose()
-            sql.scn1.Close()
-            evntlist.insertscadaevent(empid, "USER DEACTIVATED", "", "", "", "", "", "", "", "", "", "", "Audittrail")
-            
-        Catch ex As Exception
-
-        End Try
-    End Sub
-    Public Shared mngr As Integer
-    Private Sub RegistrationControl_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        Debug.WriteLine("onnload")
-        txtLid.Text = ""
-        txtLpass.Text = ""
-
-        btnLReg.Visible = False
-        Button3.Visible = False
-        Label11.Visible = False
-        Dim sql As New SqlClass
-        SqlClass.database = dbname
-
-        If SqlClass.database <> "" And SqlClass.server <> "" Then
-            Dim query1 As String = "OPEN SYMMETRIC KEY SymmetricKey1 DECRYPTION BY CERTIFICATE Certificate1 Select levelid from leveldetails where CONVERT(varchar, DecryptByKey(levelname))='" & tempAdminRights & "'"
-            sql.scon1()
-            Dim sqlcmd1 As SqlCommand = New SqlCommand(query1, sql.scn1)
-
-            Dim reader As SqlDataReader = sqlcmd1.ExecuteReader
-
-            'Dim i = 0, j = 0
-            If reader.Read Then
-                mngr = reader.Item(0)
-            End If
-            reader.Close()
-            sqlcmd1.Dispose()
-            sql.scn1.Close()
-        End If
+    Private Sub checkvalueforlogincheckbox()
+        ''Throw New NotImplementedException
     End Sub
 
-    Private Sub btnLReg_Click(sender As System.Object, e As System.EventArgs) Handles btnLReg.Click
-        If empid = -1 Then
-            MsgBox("Please login again to continue")
-            Exit Sub
-        End If
-        Dim reg As New Register
-        reg.TopMost = True
-        reg.StartPosition = FormStartPosition.CenterParent
-        reg.ShowDialog()
-    End Sub
 End Class

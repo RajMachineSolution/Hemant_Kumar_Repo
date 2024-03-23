@@ -41,6 +41,9 @@ Partial Class Register
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.Label12 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -77,7 +80,7 @@ Partial Class Register
         Me.btnRRegister.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.btnRRegister.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnRRegister.ForeColor = System.Drawing.Color.White
-        Me.btnRRegister.Location = New System.Drawing.Point(26, 454)
+        Me.btnRRegister.Location = New System.Drawing.Point(26, 459)
         Me.btnRRegister.Name = "btnRRegister"
         Me.btnRRegister.Size = New System.Drawing.Size(335, 32)
         Me.btnRRegister.TabIndex = 4
@@ -88,7 +91,7 @@ Partial Class Register
         '
         Me.lblnewreg.AutoSize = True
         Me.lblnewreg.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.lblnewreg.Location = New System.Drawing.Point(148, 504)
+        Me.lblnewreg.Location = New System.Drawing.Point(148, 509)
         Me.lblnewreg.Name = "lblnewreg"
         Me.lblnewreg.Size = New System.Drawing.Size(96, 13)
         Me.lblnewreg.TabIndex = 5
@@ -99,7 +102,7 @@ Partial Class Register
         Me.btnRLogin.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.btnRLogin.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnRLogin.ForeColor = System.Drawing.Color.White
-        Me.btnRLogin.Location = New System.Drawing.Point(116, 519)
+        Me.btnRLogin.Location = New System.Drawing.Point(116, 524)
         Me.btnRLogin.Name = "btnRLogin"
         Me.btnRLogin.Size = New System.Drawing.Size(156, 35)
         Me.btnRLogin.TabIndex = 6
@@ -129,7 +132,7 @@ Partial Class Register
         'txtid
         '
         Me.txtid.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtid.Location = New System.Drawing.Point(26, 133)
+        Me.txtid.Location = New System.Drawing.Point(26, 127)
         Me.txtid.Name = "txtid"
         Me.txtid.Size = New System.Drawing.Size(335, 26)
         Me.txtid.TabIndex = 9
@@ -140,7 +143,7 @@ Partial Class Register
         Me.Label4.BackColor = System.Drawing.SystemColors.Control
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.Color.Green
-        Me.Label4.Location = New System.Drawing.Point(31, 112)
+        Me.Label4.Location = New System.Drawing.Point(31, 109)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(51, 16)
         Me.Label4.TabIndex = 8
@@ -149,7 +152,7 @@ Partial Class Register
         'txtcid
         '
         Me.txtcid.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtcid.Location = New System.Drawing.Point(26, 212)
+        Me.txtcid.Location = New System.Drawing.Point(26, 201)
         Me.txtcid.Name = "txtcid"
         Me.txtcid.Size = New System.Drawing.Size(335, 26)
         Me.txtcid.TabIndex = 11
@@ -160,7 +163,7 @@ Partial Class Register
         Me.Label5.BackColor = System.Drawing.SystemColors.Control
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.Color.Green
-        Me.Label5.Location = New System.Drawing.Point(31, 191)
+        Me.Label5.Location = New System.Drawing.Point(31, 180)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(96, 16)
         Me.Label5.TabIndex = 10
@@ -180,7 +183,7 @@ Partial Class Register
         Me.Label6.BackColor = System.Drawing.SystemColors.Control
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.ForeColor = System.Drawing.Color.Green
-        Me.Label6.Location = New System.Drawing.Point(31, 247)
+        Me.Label6.Location = New System.Drawing.Point(31, 250)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(68, 16)
         Me.Label6.TabIndex = 12
@@ -189,7 +192,7 @@ Partial Class Register
         'txtcpass
         '
         Me.txtcpass.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtcpass.Location = New System.Drawing.Point(26, 341)
+        Me.txtcpass.Location = New System.Drawing.Point(26, 337)
         Me.txtcpass.Name = "txtcpass"
         Me.txtcpass.Size = New System.Drawing.Size(335, 26)
         Me.txtcpass.TabIndex = 15
@@ -200,7 +203,7 @@ Partial Class Register
         Me.Label7.BackColor = System.Drawing.SystemColors.Control
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.ForeColor = System.Drawing.Color.Green
-        Me.Label7.Location = New System.Drawing.Point(31, 320)
+        Me.Label7.Location = New System.Drawing.Point(31, 319)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(116, 16)
         Me.Label7.TabIndex = 14
@@ -221,28 +224,63 @@ Partial Class Register
         'Label9
         '
         Me.Label9.AutoSize = True
+        Me.Label9.ForeColor = System.Drawing.Color.Silver
         Me.Label9.Location = New System.Drawing.Point(32, 297)
         Me.Label9.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(39, 13)
+        Me.Label9.Size = New System.Drawing.Size(10, 13)
         Me.Label9.TabIndex = 17
-        Me.Label9.Text = "Label3"
+        Me.Label9.Text = " "
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(35, 162)
+        Me.Label3.ForeColor = System.Drawing.Color.Silver
+        Me.Label3.Location = New System.Drawing.Point(35, 156)
         Me.Label3.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(39, 13)
+        Me.Label3.Size = New System.Drawing.Size(10, 13)
         Me.Label3.TabIndex = 18
-        Me.Label3.Text = "Label3"
+        Me.Label3.Text = " "
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.ForeColor = System.Drawing.Color.Silver
+        Me.Label10.Location = New System.Drawing.Point(35, 230)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(10, 13)
+        Me.Label10.TabIndex = 19
+        Me.Label10.Text = " "
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.ForeColor = System.Drawing.Color.Silver
+        Me.Label11.Location = New System.Drawing.Point(33, 366)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(10, 13)
+        Me.Label11.TabIndex = 20
+        Me.Label11.Text = " "
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.ForeColor = System.Drawing.Color.Red
+        Me.Label12.Location = New System.Drawing.Point(35, 443)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(10, 13)
+        Me.Label12.TabIndex = 21
+        Me.Label12.Text = " "
         '
         'Register
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(387, 575)
+        Me.Controls.Add(Me.Label12)
+        Me.Controls.Add(Me.Label11)
+        Me.Controls.Add(Me.Label10)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.Label8)
@@ -287,4 +325,7 @@ Partial Class Register
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents Label9 As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label
+    Friend WithEvents Label10 As System.Windows.Forms.Label
+    Friend WithEvents Label11 As System.Windows.Forms.Label
+    Friend WithEvents Label12 As System.Windows.Forms.Label
 End Class

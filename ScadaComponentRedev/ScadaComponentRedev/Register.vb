@@ -5,20 +5,90 @@ Public Class Register
     Public Event regon()
     Dim sql As New SqlClass
 
-    Private Sub txtname_TextChanged(sender As System.Object, e As System.EventArgs) Handles txtname.TextChanged
-        If txtid.Text = txtcid.Text Then
-            Label5.Text = ""
+    Private Sub btnRRegister_Click(sender As System.Object, e As System.EventArgs) Handles btnRRegister.Click
+        If txtname.Text <> "" And txtid.Text.Length >= Login_Register.useridlen And txtpass.Text.Length >= Login_Register.passLen And (txtid.Text = txtcid.Text) And (IsAlphaNum(txtpass.Text) = True) Then
+            Dim selectid As String = "OPEN SYMMETRIC KEY SymmetricKey1 DECRYPTION BY CERTIFICATE Certificate1 Select CONVERT(varchar, DecryptByKey(userid)) from employeeinfo where CONVERT(varchar, DecryptByKey(userid)) ='" & Trim(txtid.Text) & "'"
+            Try
+                sql.scon1()
+                Dim sqlcmd1 As SqlCommand = New SqlCommand(selectid, sql.scn1)
+                Dim reader2 As SqlDataReader = sqlcmd1.ExecuteReader
+                If reader2.Read Then
+                    MsgBox("UserID already registered, Kindly enter a different 'UserID'!", MsgBoxStyle.Exclamation)
+                Else
+                    Label7.Text = ""
+
+                    Dim name As String = txtname.Text
+                    Dim userid As String = txtid.Text
+                    Dim pass As String = txtpass.Text
+                    Dim encryptpass As String = pass
+
+                    Try
+                        VariableClass.datee = DateTime.Now.ToString("dd-MM-yy")
+                        Dim query As String = "OPEN SYMMETRIC KEY SymmetricKey1 DECRYPTION BY CERTIFICATE Certificate1 insert into employeeinfo output INSERTED.empid values( EncryptByKey( Key_GUID('SymmetricKey1'), CONVERT(varchar,'" & name & "') ), EncryptByKey( Key_GUID('SymmetricKey1'), CONVERT(varchar,'" & userid & "') ), EncryptByKey( Key_GUID('SymmetricKey1'),CONVERT(varchar,'" & encryptpass & "')), '" & ComboBox1.SelectedValue & "','0', EncryptByKey( Key_GUID('SymmetricKey1'), CONVERT(varchar,'" & VariableClass.datee & "') ))"
+
+                        sql.scon2()
+                        Dim sqlcmd As SqlCommand = New SqlCommand(query, sql.scn2)
+                        Dim tempempid = DirectCast(sqlcmd.ExecuteScalar(), Integer)
+
+                        changepasswordcondition(tempempid, encryptpass)
+                        sqlcmd.Dispose()
+                        sql.scn2.Close()
+                        MessageBox.Show("Successfully registered!!!", "Register")
+                        Dim ev As New EventList
+
+                        ev.insertscadaevent(Login_Register.empid, "NEW REGISTRACTION", "", "NAME: " & name, "Level: " & ComboBox1.Text, "", "", "", "", "", "", "", "Audittrail")
+                        txtname.Text = ""
+                        txtid.Text = ""
+                        txtcid.Text = ""
+                        txtpass.Text = ""
+                        txtcpass.Text = ""
+
+                        RaiseEvent regon()
+                    Catch ex As Exception
+                        sql.scn2.Close()
+                        MsgBox("Error - " & ex.Message)
+                    End Try
+                End If
+                reader2.Close()
+                sqlcmd1.Dispose()
+            Catch ex As Exception
+            Finally
+                sql.scn1.Close()
+            End Try
         Else
-            Label5.Text = "UserId and Confirm UserId do not match"
+            If Not (txtname.Text <> "" And txtid.Text <> "" And txtpass.Text <> "" And txtcid.Text <> "" And txtcpass.Text <> "") Then
+                Label12.Text = "All Fields are Mandatory"
+            ElseIf Label5.Text <> "" Or Label6.Text <> "" Then
+                Label12.Text = "Confirm(s) fields dont match"
+            Else
+                Label12.Text = "Something is not right"
+            End If
+        End If
+    End Sub
+   
+
+    Private Sub txtcpass_TextChanged(sender As System.Object, e As System.EventArgs) Handles txtcpass.TextChanged
+        If txtpass.Text = txtcpass.Text Then
+            Label11.Text = ""
+        Else
+            Label11.Text = "Password and Confirm Password do not match"
+        End If
+    End Sub
+
+    Private Sub txtcid_TextChanged(sender As System.Object, e As System.EventArgs) Handles txtcid.TextChanged
+        If txtid.Text = txtcid.Text Then
+            Label10.Text = ""
+        Else
+            Label10.Text = "UserId and Confirm UserId do not match"
         End If
     End Sub
 
     Private Sub txtid_TextChanged(sender As System.Object, e As System.EventArgs) Handles txtid.TextChanged
         If txtid.Text.Length < Login_Register.useridlen Then
-            Label8.ForeColor = Color.Red
+            Label3.ForeColor = Color.Red
 
         Else
-            Label8.ForeColor = Color.Silver
+            Label3.ForeColor = Color.Silver
         End If
     End Sub
 
@@ -31,6 +101,9 @@ Public Class Register
                 Label9.ForeColor = Color.Silver
             End If
         End If
+
+
+
     End Sub
 
     Public Function IsAlphaNum(strInputText As String) As Boolean
@@ -133,64 +206,6 @@ Public Class Register
         sql.scn4.Close()
     End Function
 
-    Private Sub btnRRegister_Click(sender As System.Object, e As System.EventArgs) Handles btnRRegister.Click
-        If txtname.Text <> "" And txtid.Text.Length >= Login_Register.useridlen And txtpass.Text >= Login_Register.passLen And (txtid.Text = txtcid.Text) And (IsAlphaNum(txtpass.Text) = True) Then
-            Dim selectid As String = "OPEN SYMMETRIC KEY SymmetricKey1 DECRYPTION BY CERTIFICATE Certificate1 Select CONVERT(varchar, DecryptByKey(userid)) from employeeinfo where CONVERT(varchar, DecryptByKey(userid)) ='" & Trim(txtid.Text) & "'"
-            Try
-                sql.scon1()
-                Dim sqlcmd1 As SqlCommand = New SqlCommand(selectid, sql.scn1)
-                Dim reader2 As SqlDataReader = sqlcmd1.ExecuteReader
-                If reader2.Read Then
-                    MsgBox("UserID already registered, Kindly enter a different 'UserID'!", MsgBoxStyle.Exclamation)
-                Else
-                    Label7.Text = ""
+   
 
-                    Dim name As String = txtname.Text
-                    Dim userid As String = txtid.Text
-                    Dim pass As String = txtpass.Text
-                    Dim encryptpass As String = pass
-
-                    Try
-                        VariableClass.datee = DateTime.Now.ToString("dd-MM-yy")
-                        Dim query As String = "OPEN SYMMETRIC KEY SymmetricKey1 DECRYPTION BY CERTIFICATE Certificate1 insert into employeeinfo output INSERTED.empid values( EncryptByKey( Key_GUID('SymmetricKey1'), CONVERT(varchar,'" & name & "') ), EncryptByKey( Key_GUID('SymmetricKey1'), CONVERT(varchar,'" & userid & "') ), EncryptByKey( Key_GUID('SymmetricKey1'),CONVERT(varchar,'" & encryptpass & "')), '" & ComboBox1.SelectedValue & "','0', EncryptByKey( Key_GUID('SymmetricKey1'), CONVERT(varchar,'" & VariableClass.datee & "') ))"
-
-                        sql.scon2()
-                        Dim sqlcmd As SqlCommand = New SqlCommand(query, sql.scn2)
-                        Dim tempempid = DirectCast(sqlcmd.ExecuteScalar(), Integer)
-
-                        changepasswordcondition(tempempid, encryptpass)
-                        sqlcmd.Dispose()
-                        sql.scn2.Close()
-                        MessageBox.Show("Successfully registered!!!", "Register")
-                        Dim ev As New EventList
-
-                        ev.insertscadaevent(Login_Register.empid, "NEW REGISTRACTION", "", "NAME: " & name, "Level: " & ComboBox1.Text, "", "", "", "", "", "", "", "Audittrail")
-                        txtname.Text = ""
-                        txtid.Text = ""
-                        txtcid.Text = ""
-                        txtpass.Text = ""
-                        txtcpass.Text = ""
-
-                        RaiseEvent regon()
-                    Catch ex As Exception
-                        sql.scn2.Close()
-                        MsgBox("Error - " & ex.Message)
-                    End Try
-                End If
-                reader2.Close()
-                sqlcmd1.Dispose()
-            Catch ex As Exception
-            Finally
-                sql.scn1.Close()
-            End Try
-        Else
-            If Not (txtname.Text <> "" And txtid.Text <> "" And txtpass.Text <> "" And txtcid.Text <> "" And txtcpass.Text <> "") Then
-                Label7.Text = "All Fields are Mandatory"
-            ElseIf Label5.Text <> "" Or Label6.Text <> "" Then
-                Label7.Text = "Confirm(s) fields dont match"
-            Else
-                Label7.Text = "Something is not right"
-            End If
-        End If
-    End Sub
 End Class

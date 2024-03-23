@@ -23,23 +23,23 @@ Partial Class RegDetails
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.Label8 = New System.Windows.Forms.Label()
+        Me.Label21 = New System.Windows.Forms.Label()
+        Me.Label22 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.ConfPassTxt = New System.Windows.Forms.TextBox()
+        Me.txtcpass = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.PassTxt = New System.Windows.Forms.TextBox()
+        Me.txtpass = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.fullNameTxt = New System.Windows.Forms.TextBox()
+        Me.TextBox4 = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.LoginBtn = New System.Windows.Forms.Button()
-        Me.ActiveBtn = New System.Windows.Forms.Button()
-        Me.DeactiveBtn = New System.Windows.Forms.Button()
-        Me.UpdateBtn = New System.Windows.Forms.Button()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.ChangePassChkBx = New System.Windows.Forms.CheckBox()
-        Me.UidTxt = New System.Windows.Forms.TextBox()
+        Me.Button3 = New System.Windows.Forms.Button()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.Button4 = New System.Windows.Forms.Button()
+        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
+        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
+        Me.TextBox5 = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -49,23 +49,23 @@ Partial Class RegDetails
         '
         'Panel1
         '
-        Me.Panel1.Controls.Add(Me.Label9)
-        Me.Panel1.Controls.Add(Me.Label8)
+        Me.Panel1.Controls.Add(Me.Label21)
+        Me.Panel1.Controls.Add(Me.Label22)
         Me.Panel1.Controls.Add(Me.Label7)
-        Me.Panel1.Controls.Add(Me.ConfPassTxt)
+        Me.Panel1.Controls.Add(Me.txtcpass)
         Me.Panel1.Controls.Add(Me.Label6)
-        Me.Panel1.Controls.Add(Me.PassTxt)
+        Me.Panel1.Controls.Add(Me.txtpass)
         Me.Panel1.Controls.Add(Me.Label5)
-        Me.Panel1.Controls.Add(Me.fullNameTxt)
+        Me.Panel1.Controls.Add(Me.TextBox4)
         Me.Panel1.Controls.Add(Me.Label4)
         Me.Panel1.Controls.Add(Me.Label3)
-        Me.Panel1.Controls.Add(Me.LoginBtn)
-        Me.Panel1.Controls.Add(Me.ActiveBtn)
-        Me.Panel1.Controls.Add(Me.DeactiveBtn)
-        Me.Panel1.Controls.Add(Me.UpdateBtn)
-        Me.Panel1.Controls.Add(Me.ComboBox1)
-        Me.Panel1.Controls.Add(Me.ChangePassChkBx)
-        Me.Panel1.Controls.Add(Me.UidTxt)
+        Me.Panel1.Controls.Add(Me.Button3)
+        Me.Panel1.Controls.Add(Me.Button1)
+        Me.Panel1.Controls.Add(Me.Button2)
+        Me.Panel1.Controls.Add(Me.Button4)
+        Me.Panel1.Controls.Add(Me.ComboBox2)
+        Me.Panel1.Controls.Add(Me.CheckBox1)
+        Me.Panel1.Controls.Add(Me.TextBox5)
         Me.Panel1.Controls.Add(Me.Label2)
         Me.Panel1.Controls.Add(Me.Panel2)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
@@ -74,27 +74,27 @@ Partial Class RegDetails
         Me.Panel1.Size = New System.Drawing.Size(385, 575)
         Me.Panel1.TabIndex = 0
         '
-        'Label9
+        'Label21
         '
-        Me.Label9.AutoSize = True
-        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.ForeColor = System.Drawing.SystemColors.AppWorkspace
-        Me.Label9.Location = New System.Drawing.Point(41, 305)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(258, 13)
-        Me.Label9.TabIndex = 18
-        Me.Label9.Text = "* Password- Alphanumeric and minumum * characters"
+        Me.Label21.AutoSize = True
+        Me.Label21.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label21.ForeColor = System.Drawing.SystemColors.AppWorkspace
+        Me.Label21.Location = New System.Drawing.Point(41, 305)
+        Me.Label21.Name = "Label21"
+        Me.Label21.Size = New System.Drawing.Size(258, 13)
+        Me.Label21.TabIndex = 18
+        Me.Label21.Text = "* Password- Alphanumeric and minumum * characters"
         '
-        'Label8
+        'Label22
         '
-        Me.Label8.AutoSize = True
-        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.ForeColor = System.Drawing.SystemColors.AppWorkspace
-        Me.Label8.Location = New System.Drawing.Point(42, 152)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(220, 13)
-        Me.Label8.TabIndex = 17
-        Me.Label8.Text = "* User ID should have minumum 6 characters"
+        Me.Label22.AutoSize = True
+        Me.Label22.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label22.ForeColor = System.Drawing.SystemColors.AppWorkspace
+        Me.Label22.Location = New System.Drawing.Point(42, 152)
+        Me.Label22.Name = "Label22"
+        Me.Label22.Size = New System.Drawing.Size(220, 13)
+        Me.Label22.TabIndex = 17
+        Me.Label22.Text = "* User ID should have minumum 6 characters"
         '
         'Label7
         '
@@ -107,13 +107,13 @@ Partial Class RegDetails
         Me.Label7.TabIndex = 16
         Me.Label7.Text = "Assign Level"
         '
-        'ConfPassTxt
+        'txtcpass
         '
-        Me.ConfPassTxt.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ConfPassTxt.Location = New System.Drawing.Point(33, 356)
-        Me.ConfPassTxt.Name = "ConfPassTxt"
-        Me.ConfPassTxt.Size = New System.Drawing.Size(324, 26)
-        Me.ConfPassTxt.TabIndex = 15
+        Me.txtcpass.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtcpass.Location = New System.Drawing.Point(33, 356)
+        Me.txtcpass.Name = "txtcpass"
+        Me.txtcpass.Size = New System.Drawing.Size(324, 26)
+        Me.txtcpass.TabIndex = 15
         '
         'Label6
         '
@@ -126,13 +126,13 @@ Partial Class RegDetails
         Me.Label6.TabIndex = 14
         Me.Label6.Text = "Confirm Password"
         '
-        'PassTxt
+        'txtpass
         '
-        Me.PassTxt.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.PassTxt.Location = New System.Drawing.Point(33, 276)
-        Me.PassTxt.Name = "PassTxt"
-        Me.PassTxt.Size = New System.Drawing.Size(324, 26)
-        Me.PassTxt.TabIndex = 13
+        Me.txtpass.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtpass.Location = New System.Drawing.Point(33, 276)
+        Me.txtpass.Name = "txtpass"
+        Me.txtpass.Size = New System.Drawing.Size(324, 26)
+        Me.txtpass.TabIndex = 13
         '
         'Label5
         '
@@ -145,13 +145,13 @@ Partial Class RegDetails
         Me.Label5.TabIndex = 12
         Me.Label5.Text = "Password"
         '
-        'fullNameTxt
+        'TextBox4
         '
-        Me.fullNameTxt.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.fullNameTxt.Location = New System.Drawing.Point(29, 123)
-        Me.fullNameTxt.Name = "fullNameTxt"
-        Me.fullNameTxt.Size = New System.Drawing.Size(324, 26)
-        Me.fullNameTxt.TabIndex = 11
+        Me.TextBox4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox4.Location = New System.Drawing.Point(29, 123)
+        Me.TextBox4.Name = "TextBox4"
+        Me.TextBox4.Size = New System.Drawing.Size(324, 26)
+        Me.TextBox4.TabIndex = 11
         '
         'Label4
         '
@@ -174,79 +174,79 @@ Partial Class RegDetails
         Me.Label3.TabIndex = 9
         Me.Label3.Text = "Already Registered ?"
         '
-        'LoginBtn
+        'Button3
         '
-        Me.LoginBtn.BackColor = System.Drawing.Color.Teal
-        Me.LoginBtn.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LoginBtn.ForeColor = System.Drawing.Color.White
-        Me.LoginBtn.Location = New System.Drawing.Point(119, 524)
-        Me.LoginBtn.Name = "LoginBtn"
-        Me.LoginBtn.Size = New System.Drawing.Size(142, 39)
-        Me.LoginBtn.TabIndex = 8
-        Me.LoginBtn.Text = "Login"
-        Me.LoginBtn.UseVisualStyleBackColor = False
+        Me.Button3.BackColor = System.Drawing.Color.Teal
+        Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button3.ForeColor = System.Drawing.Color.White
+        Me.Button3.Location = New System.Drawing.Point(119, 524)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(142, 39)
+        Me.Button3.TabIndex = 8
+        Me.Button3.Text = "Login"
+        Me.Button3.UseVisualStyleBackColor = False
         '
-        'ActiveBtn
+        'Button1
         '
-        Me.ActiveBtn.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.ActiveBtn.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ActiveBtn.ForeColor = System.Drawing.Color.White
-        Me.ActiveBtn.Location = New System.Drawing.Point(33, 453)
-        Me.ActiveBtn.Name = "ActiveBtn"
-        Me.ActiveBtn.Size = New System.Drawing.Size(140, 36)
-        Me.ActiveBtn.TabIndex = 7
-        Me.ActiveBtn.Text = "Active"
-        Me.ActiveBtn.UseVisualStyleBackColor = False
+        Me.Button1.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.ForeColor = System.Drawing.Color.White
+        Me.Button1.Location = New System.Drawing.Point(33, 453)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(140, 36)
+        Me.Button1.TabIndex = 7
+        Me.Button1.Text = "Active"
+        Me.Button1.UseVisualStyleBackColor = False
         '
-        'DeactiveBtn
+        'Button2
         '
-        Me.DeactiveBtn.BackColor = System.Drawing.Color.Red
-        Me.DeactiveBtn.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DeactiveBtn.ForeColor = System.Drawing.Color.White
-        Me.DeactiveBtn.Location = New System.Drawing.Point(206, 453)
-        Me.DeactiveBtn.Name = "DeactiveBtn"
-        Me.DeactiveBtn.Size = New System.Drawing.Size(147, 36)
-        Me.DeactiveBtn.TabIndex = 6
-        Me.DeactiveBtn.Text = "Deactive"
-        Me.DeactiveBtn.UseVisualStyleBackColor = False
+        Me.Button2.BackColor = System.Drawing.Color.Red
+        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button2.ForeColor = System.Drawing.Color.White
+        Me.Button2.Location = New System.Drawing.Point(206, 453)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(147, 36)
+        Me.Button2.TabIndex = 6
+        Me.Button2.Text = "Deactive"
+        Me.Button2.UseVisualStyleBackColor = False
         '
-        'UpdateBtn
+        'Button4
         '
-        Me.UpdateBtn.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.UpdateBtn.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.UpdateBtn.ForeColor = System.Drawing.Color.White
-        Me.UpdateBtn.Location = New System.Drawing.Point(33, 400)
-        Me.UpdateBtn.Name = "UpdateBtn"
-        Me.UpdateBtn.Size = New System.Drawing.Size(320, 34)
-        Me.UpdateBtn.TabIndex = 5
-        Me.UpdateBtn.Text = "Update Details"
-        Me.UpdateBtn.UseVisualStyleBackColor = False
+        Me.Button4.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Button4.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button4.ForeColor = System.Drawing.Color.White
+        Me.Button4.Location = New System.Drawing.Point(33, 400)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(320, 34)
+        Me.Button4.TabIndex = 5
+        Me.Button4.Text = "Update Details"
+        Me.Button4.UseVisualStyleBackColor = False
         '
-        'ComboBox1
+        'ComboBox2
         '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(34, 198)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(320, 21)
-        Me.ComboBox1.TabIndex = 4
+        Me.ComboBox2.FormattingEnabled = True
+        Me.ComboBox2.Location = New System.Drawing.Point(34, 198)
+        Me.ComboBox2.Name = "ComboBox2"
+        Me.ComboBox2.Size = New System.Drawing.Size(320, 21)
+        Me.ComboBox2.TabIndex = 4
         '
-        'ChangePassChkBx
+        'CheckBox1
         '
-        Me.ChangePassChkBx.AutoSize = True
-        Me.ChangePassChkBx.Location = New System.Drawing.Point(45, 225)
-        Me.ChangePassChkBx.Name = "ChangePassChkBx"
-        Me.ChangePassChkBx.Size = New System.Drawing.Size(112, 17)
-        Me.ChangePassChkBx.TabIndex = 3
-        Me.ChangePassChkBx.Text = "Change Password"
-        Me.ChangePassChkBx.UseVisualStyleBackColor = True
+        Me.CheckBox1.AutoSize = True
+        Me.CheckBox1.Location = New System.Drawing.Point(45, 225)
+        Me.CheckBox1.Name = "CheckBox1"
+        Me.CheckBox1.Size = New System.Drawing.Size(112, 17)
+        Me.CheckBox1.TabIndex = 3
+        Me.CheckBox1.Text = "Change Password"
+        Me.CheckBox1.UseVisualStyleBackColor = True
         '
-        'UidTxt
+        'TextBox5
         '
-        Me.UidTxt.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.UidTxt.Location = New System.Drawing.Point(29, 69)
-        Me.UidTxt.Name = "UidTxt"
-        Me.UidTxt.Size = New System.Drawing.Size(324, 26)
-        Me.UidTxt.TabIndex = 2
+        Me.TextBox5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox5.Location = New System.Drawing.Point(29, 69)
+        Me.TextBox5.Name = "TextBox5"
+        Me.TextBox5.Size = New System.Drawing.Size(324, 26)
+        Me.TextBox5.TabIndex = 2
         '
         'Label2
         '
@@ -294,24 +294,24 @@ Partial Class RegDetails
 
     End Sub
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
-    Friend WithEvents ConfPassTxt As System.Windows.Forms.TextBox
+    Friend WithEvents txtcpass As System.Windows.Forms.TextBox
     Friend WithEvents Label6 As System.Windows.Forms.Label
-    Friend WithEvents PassTxt As System.Windows.Forms.TextBox
+    Friend WithEvents txtpass As System.Windows.Forms.TextBox
     Friend WithEvents Label5 As System.Windows.Forms.Label
-    Friend WithEvents fullNameTxt As System.Windows.Forms.TextBox
+    Friend WithEvents TextBox4 As System.Windows.Forms.TextBox
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label
-    Friend WithEvents LoginBtn As System.Windows.Forms.Button
-    Friend WithEvents ActiveBtn As System.Windows.Forms.Button
-    Friend WithEvents DeactiveBtn As System.Windows.Forms.Button
-    Friend WithEvents UpdateBtn As System.Windows.Forms.Button
-    Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
-    Friend WithEvents ChangePassChkBx As System.Windows.Forms.CheckBox
-    Friend WithEvents UidTxt As System.Windows.Forms.TextBox
+    Friend WithEvents Button3 As System.Windows.Forms.Button
+    Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents Button2 As System.Windows.Forms.Button
+    Friend WithEvents Button4 As System.Windows.Forms.Button
+    Friend WithEvents ComboBox2 As System.Windows.Forms.ComboBox
+    Friend WithEvents CheckBox1 As System.Windows.Forms.CheckBox
+    Friend WithEvents TextBox5 As System.Windows.Forms.TextBox
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Panel2 As System.Windows.Forms.Panel
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Label7 As System.Windows.Forms.Label
-    Friend WithEvents Label9 As System.Windows.Forms.Label
-    Friend WithEvents Label8 As System.Windows.Forms.Label
+    Friend WithEvents Label21 As System.Windows.Forms.Label
+    Friend WithEvents Label22 As System.Windows.Forms.Label
 End Class
