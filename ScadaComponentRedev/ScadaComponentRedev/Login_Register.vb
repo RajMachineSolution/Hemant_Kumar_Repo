@@ -43,7 +43,7 @@ Public Class Login_Register
     End Property
 
     Public Shared useridlen As Integer
-    <Browsable(True)>
+    <Browsable(False)>
     Property MinimumUseridLength As Integer
         Get
             Return useridlen
@@ -54,7 +54,7 @@ Public Class Login_Register
     End Property
 
     Public Shared passLen As Integer
-    <Browsable(True)>
+    <Browsable(False)>
     Property MinimumPasswordLength As Integer
         Get
             Return passLen
@@ -226,7 +226,7 @@ Public Class Login_Register
     End Property
 
     Public Shared passUpperCase As Integer = 0
-    <Browsable(True), _
+    <Browsable(False), _
 Category("Password Complexcity")> _
     Property PasswordUpperCase As Integer
         Get
@@ -238,7 +238,7 @@ Category("Password Complexcity")> _
     End Property
 
     Public Shared passLowerCase As Integer = 0
-    <Browsable(True), _
+    <Browsable(False), _
 Category("Password Complexcity")> _
     Property PasswordLowerCase As Integer
         Get
@@ -250,7 +250,7 @@ Category("Password Complexcity")> _
     End Property
 
     Public Shared passSpecialChar As Integer = 0
-    <Browsable(True), _
+    <Browsable(False), _
 Category("Password Complexcity")> _
     Property PasswordSpecialCharacter As Integer
         Get
@@ -262,7 +262,7 @@ Category("Password Complexcity")> _
     End Property
 
     Public Shared passNumericChar As Integer = 0
-    <Browsable(True), _
+    <Browsable(False), _
 Category("Password Complexcity")> _
     Property PasswordNumericCharacter As Integer
         Get
@@ -274,7 +274,7 @@ Category("Password Complexcity")> _
     End Property
 
     Public Shared passPrevoiusCheck As Integer = 0
-    <Browsable(True), _
+    <Browsable(False), _
 Category("Password Complexcity")> _
     Property Previous_password_Checkcount As Integer
         Get
@@ -609,6 +609,7 @@ Category("Adminstrator Rights")> _
                     If CheckBox1.Checked = True Then
                         Me.Parent.Hide()
                     End If
+                    RaiseEvent Logon(empid, Fname, plevel)
                 Else
 
                     If tryLoginCount >= 4 Then
@@ -641,7 +642,82 @@ Category("Adminstrator Rights")> _
     End Sub
 
     Private Sub checkvalueforlogincheckbox()
-        ''Throw New NotImplementedException
+        If (Not System.IO.Directory.Exists("c:\Chkdetail\")) Then
+
+            System.IO.Directory.CreateDirectory("c:\Chkdetail\")
+
+        End If
+        Dim FILE_NAME As String = "c:\Chkdetail\chk.txt"
+      
+        If System.IO.File.Exists("c:\Chkdetail\chk.txt") = True Then
+
+
+            Dim b As New System.IO.StreamReader(FILE_NAME)
+            Dim temp = b.ReadToEnd
+            If temp = "1" Then
+                CheckBox1.Checked = True
+            Else
+                CheckBox1.Checked = False
+            End If
+            b.Close()
+          
+        Else
+            Dim w As New System.IO.StreamWriter(FILE_NAME, True)
+
+            w.Write("1")
+
+
+            w.Close()
+            CheckBox1.Checked = True
+
+        End If
+
+
+
     End Sub
 
+    Private Sub CheckBox1_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles CheckBox1.Click
+        Dim FILE_NAME As String = "c:\Chkdetail\chk.txt"
+        '  MsgBox(FILE_NAME)
+        If System.IO.File.Exists("c:\Chkdetail\chk.txt") = True Then
+
+
+            Dim b As New System.IO.StreamReader(FILE_NAME)
+
+            '-- 1 means checkbox selected 0 means not selected
+
+
+
+
+            Dim temp = b.ReadToEnd
+            b.Close()
+            Dim w As New System.IO.StreamWriter(FILE_NAME)
+            If temp = "1" Then
+                w.Write("0")
+                CheckBox1.Checked = False
+            Else
+                w.Write("1")
+
+                CheckBox1.Checked = True
+            End If
+
+            w.Close()
+
+            '            Do While i < 31
+            '                fo = (b.ReadLine)
+        Else
+            MsgBox(FILE_NAME)
+            Dim w As New System.IO.StreamWriter(FILE_NAME, True)
+            '-- 1 means checkbox selected 0 means not selected
+            w.WriteLine("1")
+            CheckBox1.Checked = True
+
+            w.Close()
+
+        End If
+    End Sub
+
+    Private Sub Panel1_Paint(sender As System.Object, e As System.Windows.Forms.PaintEventArgs) Handles Panel1.Paint
+
+    End Sub
 End Class

@@ -71,6 +71,7 @@ Public Class Register
         If txtpass.Text = txtcpass.Text Then
             Label11.Text = ""
         Else
+            Label11.ForeColor = Color.Red
             Label11.Text = "Password and Confirm Password do not match"
         End If
     End Sub
@@ -79,6 +80,7 @@ Public Class Register
         If txtid.Text = txtcid.Text Then
             Label10.Text = ""
         Else
+            Label10.ForeColor = Color.Red
             Label10.Text = "UserId and Confirm UserId do not match"
         End If
     End Sub
