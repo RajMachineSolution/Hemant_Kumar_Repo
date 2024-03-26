@@ -20,17 +20,6 @@ Public Class Login_Register
     Dim PasswordExp1 As Boolean
     Dim evntlist As New EventList
     Public Shared PasswordExpday As Integer = 0
-    'time for logout when system is ideal form given time In seconds
-    Public Shared idealLogoutTime As Integer = 0
-    <Browsable(True)>
-    Property IdealLogoutTimeOFScada As Integer
-        Get
-            Return idealLogoutTime
-        End Get
-        Set(ByVal value As Integer)
-            idealLogoutTime = value
-        End Set
-    End Property
 
     Public Shared db As String = ""
     Property database As String
@@ -43,7 +32,7 @@ Public Class Login_Register
     End Property
 
     Public Shared useridlen As Integer
-    <Browsable(False)>
+    <Browsable(True)>
     Property MinimumUseridLength As Integer
         Get
             Return useridlen
@@ -158,42 +147,6 @@ Public Class Login_Register
         End Set
     End Property
 
-    Public Shared Alarm_list As String() = {}
-    <Browsable(True), _
-    EditorBrowsable(EditorBrowsableState.Always), _
-    Category("Define Levels"), _
-    Description("The items with sub items that should be displayed")> _
-    Public Property Alarmlist As String()
-        Get
-            Return Alarm_list
-        End Get
-        Set(ByVal value As String())
-            If value.Length <> 0 Then
-                Alarm_list = value
-            Else
-                Alarm_list = New String() {}
-            End If
-        End Set
-    End Property
-
-    Public Shared Alarm_Action As String() = {}
-    <Browsable(True), _
-     EditorBrowsable(EditorBrowsableState.Always), _
-     Category("Define Levels"), _
-     Description("The items with sub items that should be displayed")> _
-    Public Property ALarmAction As String()
-        Get
-            Return Alarm_Action
-        End Get
-        Set(ByVal value As String())
-            If value.Length <> 0 Then
-                Alarm_Action = value
-            Else
-                Alarm_Action = New String() {}
-            End If
-        End Set
-    End Property
-
     Public Shared Event_Name As String() = {}
     <Browsable(True), _
      EditorBrowsable(EditorBrowsableState.Always), _
@@ -226,7 +179,7 @@ Public Class Login_Register
     End Property
 
     Public Shared passUpperCase As Integer = 0
-    <Browsable(False), _
+    <Browsable(True), _
 Category("Password Complexcity")> _
     Property PasswordUpperCase As Integer
         Get
@@ -238,7 +191,7 @@ Category("Password Complexcity")> _
     End Property
 
     Public Shared passLowerCase As Integer = 0
-    <Browsable(False), _
+    <Browsable(True), _
 Category("Password Complexcity")> _
     Property PasswordLowerCase As Integer
         Get
@@ -250,7 +203,7 @@ Category("Password Complexcity")> _
     End Property
 
     Public Shared passSpecialChar As Integer = 0
-    <Browsable(False), _
+    <Browsable(True), _
 Category("Password Complexcity")> _
     Property PasswordSpecialCharacter As Integer
         Get
@@ -262,7 +215,7 @@ Category("Password Complexcity")> _
     End Property
 
     Public Shared passNumericChar As Integer = 0
-    <Browsable(False), _
+    <Browsable(True), _
 Category("Password Complexcity")> _
     Property PasswordNumericCharacter As Integer
         Get
@@ -563,13 +516,13 @@ Category("Adminstrator Rights")> _
                     daycount = dt11.Subtract(dt).Days
                     daycount = daycount + 1
 
-                    If PasswordExp1 = True Or activeindex > 0 Then
+                    If PasswordExp1 = True Or activeindex = 0 Then
                         If empid <> 1 Then
-                            If daycount = PasswordExp Or activeindex = 0 Or daycount < 0 Then
+                            If daycount >= PasswordExpday Or activeindex = 0 Or daycount < 0 Then
 
                                 txtLid.Text = ""
                                 txtLpass.Text = ""
-                                Dim Chang As New ChangePassword()
+                                Dim Chang As New ChangePassword(Me.Location.X, Me.Location.Y)
                                 Chang.TopMost = True
                                 Chang.TextBoxconfirmnewpass.Text = ""
                                 Chang.TextBoxnewpass.Text = ""

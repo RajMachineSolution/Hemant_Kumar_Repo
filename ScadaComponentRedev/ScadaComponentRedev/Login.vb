@@ -7,18 +7,7 @@ Public Class Login
     Public Shared PasswordExp As Boolean
     Dim PasswordExp1 As Boolean
     Dim evntlist As New EventList
-    Public Shared ideallogouttime As Integer = 0 'time for logout when system is ideal form given time In seconds
-    <Browsable(False)>
-    Property IdealLogoutTimeOFScada As Integer
-        Get
-            Return ideallogouttime
-        End Get
-        Set(ByVal value As Integer)
-            ideallogouttime = value
-
-        End Set
-    End Property
-
+   
     Public Shared useridlen As Integer
     <Browsable(True)>
     Property MinimumUseridLength As Integer
@@ -115,34 +104,28 @@ Public Class Login
             End If
         End Set
     End Property
-    <Browsable(False)>
+    <Browsable(True)>
     Public Property PasswordExpire As Boolean
         Get
             Return PasswordExp
         End Get
         Set(ByVal value As Boolean)
-            '   If value = True Then
-            'PasswordExp = value
-            '  Else
+           
             SqlClass.px = value
             PasswordExp = value
             PasswordExp1 = value
-            'sqlclass.dbid = value
-            'End If
+           
         End Set
     End Property
-    <Browsable(False)>
+    <Browsable(True)>
     Public Property PasswordExpireday As Integer
         Get
             Return PasswordExpday
         End Get
         Set(ByVal value As Integer)
-            '  If value = True Then
-            'PasswordExpday = value
-            '  Else
+         
             PasswordExpday = value
-            'sqlclass.dbid = value
-            ' End If
+        
         End Set
     End Property
 
@@ -157,7 +140,7 @@ Public Class Login
             If value.Length <> 0 Then
                 user_level = value
                 userlevelinsert(user_level)
-                'sqlclass.dbid = value
+
             Else
                 user_level = New String() {}
             End If
@@ -210,7 +193,7 @@ Category("Password Complexcity")> _
         End Set
     End Property
     Public Shared passprevoiuscheck As Integer = 0
-    <Browsable(True), _
+    <Browsable(False), _
 Category("Password Complexcity")> _
     Property Previous_password_Checkcount As Integer
         Get
@@ -238,19 +221,6 @@ Category("Adminstrator Rights")> _
 
     Private Sub buttonrightclick_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
 
-        
-
-        Login_Register.ideallogouttime = ideallogouttime
-        Login_Register.PasswordExp = PasswordExp
-
-        Login_Register.passlen = passlen
-        Login_Register.passlowercase = passlowercase
-        Login_Register.passnumericchar = passnumericchar
-        Login_Register.passprevoiuscheck = passprevoiuscheck
-        Login_Register.passspecialchar = passspecialchar
-        Login_Register.passuppercase = passuppercase
-        Login_Register.PasswordExpday = PasswordExpireday
-        Login_Register.user_level = user_level
         userlevelinsert(user_level)
     End Sub
 
@@ -264,8 +234,8 @@ Category("Adminstrator Rights")> _
 
     Public Sub loginsuccess(ByVal empid As String, ByVal fname As String, ByVal plevel As String)
         RaiseEvent Logon1(empid, fname, plevel)
-        Login_Register.idealLogoutTime = ideallogouttime
-        Login_Register.PasswordExp = PasswordExp
+
+
 
         Login_Register.useridlen = useridlen
         Login_Register.passLen = passlen
@@ -275,6 +245,8 @@ Category("Adminstrator Rights")> _
         Login_Register.passSpecialChar = passspecialchar
         Login_Register.passUpperCase = passuppercase
         Login_Register.PasswordExpday = PasswordExpireday
+        Login_Register.PasswordExp = PasswordExp
+
         Login_Register.user_level = user_level
     End Sub
 
@@ -328,18 +300,18 @@ Category("Adminstrator Rights")> _
                     user_level = templevelname
                     Exit Sub
                 End If
-                If Userlevel.Length < i Then ' OPEN SYMMETRIC KEY SymmetricKey1 DECRYPTION BY CERTIFICATE Certificate1 insert new userlevel in database
+                If Userlevel.Length < i Then
 
 
                     For j = 0 To ulevel.Length - 1
                         If templevelname.Contains(Userlevel(j)) Then
 
                         Else
-                          
+
                         End If
                     Next
                 End If
-                If Userlevel.Length > i Then ' OPEN SYMMETRIC KEY SymmetricKey1 DECRYPTION BY CERTIFICATE Certificate1 insert new userlevel in database
+                If Userlevel.Length > i Then
 
 
                     For j = 0 To ulevel.Length - 1
@@ -353,11 +325,11 @@ Category("Adminstrator Rights")> _
 
                             sqlcmd1.ExecuteNonQuery()
                             sqlcmd1.Dispose()
-                            'OPEN SYMMETRIC KEY SymmetricKey1 DECRYPTION BY CERTIFICATE Certificate1 insert the new value in database
+
                         End If
                     Next
                 End If
-                '    MessageBox.Show(i & "    " & Userlevel.Length)
+
                 If Userlevel.Length = i Then 'this condition is for  to rename the userlevel and suffle the userlevel
 
 
@@ -366,7 +338,7 @@ Category("Adminstrator Rights")> _
 
                         Else
 
-                            '' query = "OPEN SYMMETRIC KEY SymmetricKey1 DECRYPTION BY CERTIFICATE Certificate1 update leveldetails set levelname=EncryptByKey( Key_GUID('SymmetricKey1'), CONVERT(varchar,'" & Userlevel(j) & "') ) where levelname=EncryptByKey( Key_GUID('SymmetricKey1'), CONVERT(varchar,'" & templevelname(j) & "')) "
+
                             query = "OPEN SYMMETRIC KEY SymmetricKey1 DECRYPTION BY CERTIFICATE Certificate1 update leveldetails set levelname=EncryptByKey( Key_GUID('SymmetricKey1'), CONVERT(varchar,'" & Userlevel(j) & "') ) where CONVERT(varchar, DecryptByKey(levelname)) ='" & templevelname(j) & "' "
 
                             Dim sqlcmd1 As SqlCommand = New SqlCommand(query, sql.scn1)
@@ -376,16 +348,16 @@ Category("Adminstrator Rights")> _
 
 
 
-                            'OPEN SYMMETRIC KEY SymmetricKey1 DECRYPTION BY CERTIFICATE Certificate1 insert the new value in database
+
                         End If
                     Next
                 End If
                 sql.scn1.Close()
-                ' Next
+
                 If Userlevel.Length = 0 Then ' to intailise the user property if database contain userlevel 
-                    ' For i = 0 To templevelname.Length - 1
+
                     user_level = templevelname
-                    '   Next
+
 
                 End If
             End If

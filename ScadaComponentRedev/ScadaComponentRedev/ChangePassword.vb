@@ -91,4 +91,9 @@ Public Class ChangePassword
             Label19.Text = "Password and Confirm Password do not match"
         End If
     End Sub
+
+    Private Sub Button1_Click(sender As System.Object, e As System.EventArgs) Handles Button1.Click
+        Me.Close()
+
+    End Sub
 End Class

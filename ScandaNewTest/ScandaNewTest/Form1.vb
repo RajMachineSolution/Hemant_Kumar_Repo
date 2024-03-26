@@ -13,4 +13,8 @@ Public Class Form1
     Private Sub Login1_Load(sender As System.Object, e As System.EventArgs) Handles Login1.Load
 
     End Sub
+
+    Private Sub Button1_Click(sender As System.Object, e As System.EventArgs) Handles Button1.Click
+        login.ShowDialog()
+    End Sub
 End Class

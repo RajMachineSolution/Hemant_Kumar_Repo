@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class LoginForm
+Partial Class login
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -22,75 +22,45 @@ Partial Class LoginForm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
         Me.Login_Register1 = New ScadaComponentRedev.Login_Register()
         Me.SuspendLayout()
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(81, 9)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(88, 18)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "UserName"
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(81, 37)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(47, 18)
-        Me.Label2.TabIndex = 1
-        Me.Label2.Text = "Level"
         '
         'Login_Register1
         '
         Me.Login_Register1.AdminstratorRightsLevel = ""
-
-
         Me.Login_Register1.database = ""
         Me.Login_Register1.database_name = "ScadaNewDB"
         Me.Login_Register1.Database_Password = "rmsview"
         Me.Login_Register1.Database_UserID = "rmsview"
         Me.Login_Register1.EventName = New String(-1) {}
-
-        Me.Login_Register1.Location = New System.Drawing.Point(11, 67)
+        Me.Login_Register1.Location = New System.Drawing.Point(20, 89)
         Me.Login_Register1.Margin = New System.Windows.Forms.Padding(2)
-        Me.Login_Register1.MinimumPasswordLength = 0
-        Me.Login_Register1.MinimumUseridLength = 0
+        Me.Login_Register1.MinimumPasswordLength = 4
+        Me.Login_Register1.MinimumUseridLength = 3
         Me.Login_Register1.Name = "Login_Register1"
-        Me.Login_Register1.PasswordExpire = False
-        Me.Login_Register1.PasswordExpireday = 0
-        Me.Login_Register1.PasswordLowerCase = 0
-        Me.Login_Register1.PasswordNumericCharacter = 0
-        Me.Login_Register1.PasswordSpecialCharacter = 0
-        Me.Login_Register1.PasswordUpperCase = 0
+        Me.Login_Register1.PasswordExpire = True
+        Me.Login_Register1.PasswordExpireday = 2
+        Me.Login_Register1.PasswordLowerCase = 1
+        Me.Login_Register1.PasswordNumericCharacter = 1
+        Me.Login_Register1.PasswordSpecialCharacter = 1
+        Me.Login_Register1.PasswordUpperCase = 2
         Me.Login_Register1.Previous_password_Checkcount = 0
         Me.Login_Register1.RecordloginAction = False
         Me.Login_Register1.Server_Name = ".\SQLEXPRESS"
         Me.Login_Register1.Size = New System.Drawing.Size(303, 347)
-        Me.Login_Register1.TabIndex = 2
-        Me.Login_Register1.Userlevel = New String(-1) {}
+        Me.Login_Register1.TabIndex = 0
+        Me.Login_Register1.Userlevel = New String() {"Operator", "Supervisor", "Manager", "Maintenance", "Oem1", "Oem2", "Admin"}
         '
-        'LoginForm
+        'login
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(339, 426)
+        Me.ClientSize = New System.Drawing.Size(358, 479)
         Me.Controls.Add(Me.Login_Register1)
-        Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.Label1)
-        Me.Name = "LoginForm"
-        Me.Text = "LoginForm"
+        Me.Name = "login"
+        Me.Text = "login"
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
-    Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Login_Register1 As ScadaComponentRedev.Login_Register
 End Class

@@ -23,3 +23,4 @@ C:\Users\heman\onedrive\documents\visual studio 2010\Projects\ScandaNewTest\Scan
 C:\Users\heman\onedrive\documents\visual studio 2010\Projects\ScandaNewTest\ScandaNewTest\obj\x86\Debug\ScandaNewTest.Form1.resources
 C:\Users\heman\onedrive\documents\visual studio 2010\Projects\ScandaNewTest\ScandaNewTest\obj\x86\Debug\ScandaNewTest.Resources.resources
 C:\Users\heman\onedrive\documents\visual studio 2010\Projects\ScandaNewTest\ScandaNewTest\obj\x86\Debug\ScandaNewTest.vbproj.GenerateResource.Cache
+C:\Users\heman\onedrive\documents\visual studio 2010\Projects\ScandaNewTest\ScandaNewTest\obj\x86\Debug\ScandaNewTest.login.resources
