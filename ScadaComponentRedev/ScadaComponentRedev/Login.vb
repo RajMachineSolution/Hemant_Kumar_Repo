@@ -257,6 +257,8 @@ Category("Adminstrator Rights")> _
         lgn.ShowDialog()
     End Sub
 
+    'this sub takes user level as Array of String as parameter
+    ' this sub used to insert, updata user level in database 'LevelDetails'
     Public Sub userlevelinsert(ByVal ulevel As String()) ' multiple functionality is done by this method
         Dim sql As New SqlClass
         Dim templevelname As String() = {}
@@ -264,12 +266,14 @@ Category("Adminstrator Rights")> _
         Try
 
             If SqlClass.server <> "" And SqlClass.dbname <> "" Then
+                'Retrieve levelname from levelDetails exclude levelId=1
                 Dim query As String = "OPEN SYMMETRIC KEY SymmetricKey1 DECRYPTION BY CERTIFICATE Certificate1 Select CONVERT(varchar, DecryptByKey(levelname)) as levelname from leveldetails where levelid<>1 order by levelid asc "
                 sql.scon1()
                 Dim sqlcmd As SqlCommand = New SqlCommand(query, sql.scn1)
 
                 Dim reader As SqlDataReader = sqlcmd.ExecuteReader
                 Dim i = 0, j = 0
+                'Retrieve levelname from 'levelDetails' table and store in 'templevelname' which is array of String 
                 While reader.Read
                     ReDim Preserve templevelname(i)
                     templevelname(i) = reader.Item(0)
@@ -280,6 +284,7 @@ Category("Adminstrator Rights")> _
                 reader.Close()
                 Dim count = 0
 
+                'If there are no levels retrieved from the database (i = 0), it inserts each level from Userlevel into the database.
                 If i = 0 Then
                     For j = 0 To ulevel.Length - 1
                         If Userlevel(j).Length = 0 Or Userlevel(j) = Nothing Then
@@ -295,7 +300,7 @@ Category("Adminstrator Rights")> _
 
                             sqlcmd1.Dispose()
                         End If
-                       
+
                     Next
                     user_level = templevelname
                     Exit Sub
@@ -311,8 +316,10 @@ Category("Adminstrator Rights")> _
                         End If
                     Next
                 End If
-                If Userlevel.Length > i Then
 
+                'if length of userlevel is greater than length of retrieve levelname from database, it insert
+                ' insert extra levelname into database
+                If Userlevel.Length > i Then
 
                     For j = 0 To ulevel.Length - 1
                         If templevelname.Contains(Userlevel(j)) Then
@@ -329,8 +336,9 @@ Category("Adminstrator Rights")> _
                         End If
                     Next
                 End If
-
-                If Userlevel.Length = i Then 'this condition is for  to rename the userlevel and suffle the userlevel
+                'if length of userLevel and retrive number of levelname from database is equal, it update the levelname in database if
+                ' they are different from levelname in Userlevel
+                If Userlevel.Length = i Then
 
 
                     For j = 0 To ulevel.Length - 1
@@ -353,8 +361,8 @@ Category("Adminstrator Rights")> _
                     Next
                 End If
                 sql.scn1.Close()
-
-                If Userlevel.Length = 0 Then ' to intailise the user property if database contain userlevel 
+                'If there are no levelname in the Userlevel array, it assigns the retrieved levels from the database to the user_level variable.
+                If Userlevel.Length = 0 Then
 
                     user_level = templevelname
 

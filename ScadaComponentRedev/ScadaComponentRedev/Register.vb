@@ -1,11 +1,16 @@
 ﻿Imports System.Data.SqlClient
 
+'this Resiter Class is used to insert new user
 Public Class Register
     Dim ev As New EventList
     Public Event regon()
     Dim sql As New SqlClass
 
+    ' sub Event handler
+    'insert New User into employeeinfo
     Private Sub btnRRegister_Click(sender As System.Object, e As System.EventArgs) Handles btnRRegister.Click
+        'Validate user detail userId, confirmUserId,password, confirmpassword by predefined rules
+        'if any fileds are empty then print message on Resister form
         If txtname.Text <> "" And txtid.Text.Length >= Login_Register.useridlen And txtpass.Text.Length >= Login_Register.passLen And (txtid.Text = txtcid.Text) And (IsAlphaNum(txtpass.Text) = True) Then
             Dim selectid As String = "OPEN SYMMETRIC KEY SymmetricKey1 DECRYPTION BY CERTIFICATE Certificate1 Select CONVERT(varchar, DecryptByKey(userid)) from employeeinfo where CONVERT(varchar, DecryptByKey(userid)) ='" & Trim(txtid.Text) & "'"
             Try
@@ -22,6 +27,7 @@ Public Class Register
                     Dim pass As String = txtpass.Text
                     Dim encryptpass As String = pass
 
+                    'insert new user Record into employeeinfo table
                     Try
                         VariableClass.datee = DateTime.Now.ToString("dd-MM-yy")
                         Dim query As String = "OPEN SYMMETRIC KEY SymmetricKey1 DECRYPTION BY CERTIFICATE Certificate1 insert into employeeinfo output INSERTED.empid values( EncryptByKey( Key_GUID('SymmetricKey1'), CONVERT(varchar,'" & name & "') ), EncryptByKey( Key_GUID('SymmetricKey1'), CONVERT(varchar,'" & userid & "') ), EncryptByKey( Key_GUID('SymmetricKey1'),CONVERT(varchar,'" & encryptpass & "')), '" & ComboBox1.SelectedValue & "','0', EncryptByKey( Key_GUID('SymmetricKey1'), CONVERT(varchar,'" & VariableClass.datee & "') ))"
@@ -65,8 +71,9 @@ Public Class Register
             End If
         End If
     End Sub
-   
 
+    'TextChanged Event handler for txtcPass 
+    'if password and confirm password not match then print message on form
     Private Sub txtcpass_TextChanged(sender As System.Object, e As System.EventArgs) Handles txtcpass.TextChanged
         If txtpass.Text = txtcpass.Text Then
             Label11.Text = ""
@@ -85,6 +92,7 @@ Public Class Register
         End If
     End Sub
 
+    'if length of Userid set then check typed user id according to Userid length
     Private Sub txtid_TextChanged(sender As System.Object, e As System.EventArgs) Handles txtid.TextChanged
         If txtid.Text.Length < Login_Register.useridlen Then
             Label3.ForeColor = Color.Red
@@ -108,11 +116,17 @@ Public Class Register
 
     End Sub
 
+    'this function is used to validate String that is passed as Parameter and return boolean according to validating String
     Public Function IsAlphaNum(strInputText As String) As Boolean
         Dim loginreg As New Login_Register
-        Dim t1 = System.Text.RegularExpressions.Regex.IsMatch(strInputText, "^(.*?[A-Z]){" & loginreg.passuppercase & ",}.*$")
-        Dim t2 = System.Text.RegularExpressions.Regex.IsMatch(strInputText, "^(.*?[0-9]){" & loginreg.passnumericchar & ",}.*$")
-        Dim t3 = System.Text.RegularExpressions.Regex.IsMatch(strInputText, "^(.*?[a-z]){" & loginreg.passlowercase & ",}.*$")
+        'validate number of Capital Charector in strinputText
+        Dim t1 = System.Text.RegularExpressions.Regex.IsMatch(strInputText, "^(.*?[A-Z]){" & loginreg.passUpperCase & ",}.*$")
+
+        'validate numeric charactor in strinputText 
+        Dim t2 = System.Text.RegularExpressions.Regex.IsMatch(strInputText, "^(.*?[0-9]){" & loginreg.passNumericChar & ",}.*$")
+        'validate number of lower charector in strinputText
+        Dim t3 = System.Text.RegularExpressions.Regex.IsMatch(strInputText, "^(.*?[a-z]){" & loginreg.passLowerCase & ",}.*$")
+        'valide number of speciel charector in strinputText
         Dim t4 = System.Text.RegularExpressions.Regex.IsMatch(strInputText, "^(.*?[\.@_-`~!@#$%^&*()_+={}\[\]\\|:;""'<>,.?/-]){" & loginreg.passspecialchar & ",}.*$")
         If t1 = True And t2 = True And t3 = True And t4 = True And strInputText.Length >= Login_Register.passLen Then
             Return True
@@ -121,12 +135,15 @@ Public Class Register
         End If
     End Function
 
+    ' this Event Handler Call When Resister Forn is load
     Private Sub Register_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
         Me.StartPosition = FormStartPosition.CenterParent
 
         Label3.Text = "*User ID should have minimum " & Login_Register.useridlen & " characters"
         Label9.Text = "*Password- Alphanumeric and Special and minimum " & Login_Register.passLen & " characters"
         Dim query2 As String
+
+        'Retrieve all levelname from levelDetails table exclude levelid is greater than 2 or greater than 2 and levelid is equal to mngr
         If Login_Register.plevel = Login_Register.mngr Then
             query2 = "OPEN SYMMETRIC KEY SymmetricKey1 DECRYPTION BY CERTIFICATE Certificate1 Select levelid,CONVERT(varchar, DecryptByKey(levelname)) as levelname from leveldetails where levelid >2 and levelid<>" & Login_Register.mngr
         Else
@@ -134,14 +151,13 @@ Public Class Register
         End If
         sql.scon3()
         Dim sqlcmd1 As SqlCommand = New SqlCommand(query2, sql.scn3)
-
-        Dim i = 0, j = 0
     
         sqlcmd1.ExecuteNonQuery()
         Dim DA = New SqlDataAdapter
         DA.SelectCommand = sqlcmd1
         Dim DataSet = New DataSet
         DA.Fill(DataSet)
+        'insert all levename and levelid in ComboBox1 that has retrieve from Query2
         ComboBox1.DataSource = DataSet.Tables(0)
         ComboBox1.ValueMember = "levelid"
         ComboBox1.DisplayMember = "levelname"

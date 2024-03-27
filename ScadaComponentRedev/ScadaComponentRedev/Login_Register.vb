@@ -2,17 +2,27 @@
 Imports System.Data.SqlClient
 Imports System.Globalization
 
+'This is User Control type component 
+'Used to Authentication, by Authentication process, getting Level Name and UserName
+'Scada Uses this Level Name to give verios component to Access and restricted
 Public Class Login_Register
     Implements IMessageFilter
     Public Shared SecondsCount As Integer = 0
     Public Shared server = ".\SQLEXPRESS", dbname = "ScadaNewDB", dbid = "rmsview", dbpass = "rmsview"
     Public Shared empid, Fname, plevel As String
+
+    'Try to Login by given UserId
     Public Shared tryLoginUserId As String = "first"
+
+    'for Count unsuccess login
     Public Shared tryLoginCount As Integer
     Public Shared lotNo = "", batchNo = ""
     Public Shared levelId, levelName As String
+
+    'Declare Logon Event with three Perameter
     Public Event Logon(ByVal empid As String, ByVal fname As String, ByVal plevel As String)
-    Public Shared actionname() As String = {"Aduittrail", "EventList", "Alarm"}
+
+    'declare Event regon() with no perameter
     Public Event regon()
     Dim loginDetailsFlag As Boolean = False
 
@@ -110,6 +120,7 @@ Public Class Login_Register
         End Set
     End Property
 
+    'for Enable Password Expire ficility
     <Browsable(True)>
     Public Property PasswordExpire As Boolean
         Get
@@ -123,6 +134,7 @@ Public Class Login_Register
         End Set
     End Property
 
+
     <Browsable(True)>
     Public Property PasswordExpireday As Integer
         Get
@@ -133,6 +145,7 @@ Public Class Login_Register
         End Set
     End Property
 
+    'gives new LevelName as Array of String
     Public Shared user_level As String() = {}
     Public Property Userlevel As String()
         Get
@@ -165,6 +178,7 @@ Public Class Login_Register
         End Set
     End Property
 
+    'this property is used to insert every ectivity or Action done by user into 'EventList' table
     <Browsable(True), _
    EditorBrowsable(EditorBrowsableState.Always), _
    Category("Define Levels"), _
@@ -178,6 +192,7 @@ Public Class Login_Register
         End Set
     End Property
 
+    'Number of Uppercase Charactor in Password 
     Public Shared passUpperCase As Integer = 0
     <Browsable(True), _
 Category("Password Complexcity")> _
@@ -190,6 +205,7 @@ Category("Password Complexcity")> _
         End Set
     End Property
 
+    'Number of Lowercase Charactor in Password 
     Public Shared passLowerCase As Integer = 0
     <Browsable(True), _
 Category("Password Complexcity")> _
@@ -202,6 +218,7 @@ Category("Password Complexcity")> _
         End Set
     End Property
 
+    ''Number of Special Charactor in Password 
     Public Shared passSpecialChar As Integer = 0
     <Browsable(True), _
 Category("Password Complexcity")> _
@@ -214,6 +231,7 @@ Category("Password Complexcity")> _
         End Set
     End Property
 
+    ''Number of Numeric Charactor in Password 
     Public Shared passNumericChar As Integer = 0
     <Browsable(True), _
 Category("Password Complexcity")> _
@@ -238,6 +256,7 @@ Category("Password Complexcity")> _
         End Set
     End Property
 
+    'give Admistrator rigth to other Lower Level
     Dim tempAdminRights = ""
     <Browsable(True), _
 Category("Adminstrator Rights")> _
@@ -250,10 +269,12 @@ Category("Adminstrator Rights")> _
         End Set
     End Property
 
+    'This is click Event handler, On Button click Call Login sub
     Private Sub btnLlogin_Click(sender As System.Object, e As System.EventArgs) Handles btnLlogin.Click
         login()
     End Sub
 
+    ' on click btnReg ('Add User') pop up Register form
     Private Sub btnLReg_Click(sender As System.Object, e As System.EventArgs) Handles btnLReg.Click
         If empid = -1 Then
             MsgBox("Please login again to continue")
@@ -265,22 +286,29 @@ Category("Adminstrator Rights")> _
         reg.ShowDialog()
     End Sub
 
+    ' function takes String as perameter and return boolean
+    ' this function check given String contains atleast one number and cherector in specified length
     Private Function IsAlphaNum(ByVal strInputText As String) As Boolean
         Return System.Text.RegularExpressions.Regex.IsMatch(strInputText, "(?!^[0-9]*$)(?!^[a-zA-Z]*$)^([a-zA-Z0-9]{8,50})$")
     End Function
 
     Public Shared mngr As Integer
+
+    'An Event Handler, Call on Login_Control on Load
     Private Sub RegistrationControl_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         checkvalueforlogincheckbox()
         txtLid.Text = ""
         txtLpass.Text = ""
 
+        'Initially bitnLeg(Add User) button, Button3(Edit User) button and Label11(New User ?) is visisblility false 
         btnLReg.Visible = False
         Button3.Visible = False
         Label11.Visible = False
         Dim sql As New SqlClass
         SqlClass.database = dbname
 
+
+        ' if  AdminstratorRightsLevel property is not empty then give right to given User as a Adminstrator, assign level id to mngr
         If SqlClass.database <> "" And SqlClass.server <> "" Then
             Dim query1 As String = "OPEN SYMMETRIC KEY SymmetricKey1 DECRYPTION BY CERTIFICATE Certificate1 Select levelid from leveldetails where CONVERT(varchar, DecryptByKey(levelname))='" & tempAdminRights & "'"
             sql.scon1()
@@ -288,7 +316,6 @@ Category("Adminstrator Rights")> _
 
             Dim reader As SqlDataReader = sqlcmd1.ExecuteReader
 
-            'Dim i = 0, j = 0
             If reader.Read Then
                 mngr = reader.Item(0)
             End If
@@ -298,6 +325,10 @@ Category("Adminstrator Rights")> _
         End If
     End Sub
 
+    'sub with paramenter empid is Iteger
+    'if more then 4 attemp for login is fail then this sub is called, Deactivate the user that is passed their id
+    ' set deactivated in table 'employeeinfo'
+    'Insert user that is deactivate, detail in 'Eventlist' table with empid 
     Private Sub deactivate(ByVal id As Integer)
         Dim sql As New SqlClass
 
@@ -332,10 +363,6 @@ Category("Adminstrator Rights")> _
             SecondsCount = 0
             Timer1.Start()
 
-            '  Return True
-
-            'Else
-            ' Return False
         End If
     End Function
 
@@ -378,7 +405,7 @@ Category("Adminstrator Rights")> _
                         Else
 
                             query = "OPEN SYMMETRIC KEY SymmetricKey1 DECRYPTION BY CERTIFICATE Certificate1 insert into leveldetails(levelname) values(EncryptByKey( Key_GUID('SymmetricKey1'), CONVERT(varchar,'" & Userlevel(j) & "') ))"
-                            '        sql.con1()
+
                             Dim sqlcmd1 As SqlCommand = New SqlCommand(query, sql.scn1)
                             evntlist.insertscadaevent(-1, "NEW USERLEVEL", "", "LEVEL=" + Userlevel(j), "", "", "", "", "", "", "", "", "Audittrail")
 
@@ -450,11 +477,15 @@ Category("Adminstrator Rights")> _
 
     End Sub
 
+    'Event Handler sub for Button3('Edit User')
+
     Private Sub Button3_Click(sender As System.Object, e As System.EventArgs) Handles Button3.Click
         If empid = -1 Then
             MsgBox("Please login again to continue!")
             Exit Sub
         End If
+        'if User login first time then open ChangePassword form
+        'if levelId(plevel) or Adminstrator assign its previlege to mngr then open RegisterDetails form,
         If plevel = 1 Or plevel = mngr Then
             Dim tempregdetails As New RegisterDetails
             tempregdetails.TopMost = True
@@ -478,10 +509,11 @@ Category("Adminstrator Rights")> _
 
     End Sub
 
+    'login() for Authentication process
     Sub login()
         Try
-            Dim uid As String = txtLid.Text
-            Dim pass As String = txtLpass.Text
+            Dim uid As String = txtLid.Text 'User ID
+            Dim pass As String = txtLpass.Text 'Password
             Dim query As String = "OPEN SYMMETRIC KEY SymmetricKey1 DECRYPTION BY CERTIFICATE Certificate1 Select empid,CONVERT(varchar, DecryptByKey(fname)),plevel,active,CONVERT(varchar, DecryptByKey(passworddate)),(select CONVERT(varchar, DecryptByKey(levelname)) from leveldetails where levelid=e.plevel) as levelname from employeeinfo as e where DecryptByKey(UserID)='" & uid & "' and DecryptByKey(password)= '" & pass & "' COLLATE SQL_Latin1_General_CP1_CS_AS and active<2"
             Dim sql As New SqlClass()
             Dim daycount
@@ -493,12 +525,14 @@ Category("Adminstrator Rights")> _
             sqlcon.Open()
             Dim sqlcmd As SqlCommand = New SqlCommand(query, sqlcon)
             Using reader As SqlDataReader = sqlcmd.ExecuteReader
+
+                'if User Try to login First time uid assign to tryLoginUserId
                 If tryLoginUserId <> uid Then
                     tryLoginUserId = uid
                     tryLoginCount = 0
                 End If
                 If reader.Read Then
-                   
+
                     empid = reader(0)
                     Fname = reader(1)
                     plevel = reader(2)
@@ -516,6 +550,7 @@ Category("Adminstrator Rights")> _
                     daycount = dt11.Subtract(dt).Days
                     daycount = daycount + 1
 
+                    'If Password Expired or Account is Deactivate pop up 'ChangePassword' form
                     If PasswordExp1 = True Or activeindex = 0 Then
                         If empid <> 1 Then
                             If daycount >= PasswordExpday Or activeindex = 0 Or daycount < 0 Then
@@ -541,6 +576,8 @@ Category("Adminstrator Rights")> _
                     btnLReg.Visible = False
                     Button3.Visible = False
                     Label11.Visible = False
+
+                    '1 mean Adminstrator that have full previledge
                     If plevel = 1 Or plevel = mngr Then
 
                         btnLReg.Visible = True
@@ -562,9 +599,11 @@ Category("Adminstrator Rights")> _
                     If CheckBox1.Checked = True Then
                         Me.Parent.Hide()
                     End If
+                    'Raise Event Logon with  parameter Userid, Fist Name Level Name on successfull Login
                     RaiseEvent Logon(empid, Fname, plevel)
                 Else
 
+                    ' if user Attempt login fail more then 4 time then User with empId is Deactivate
                     If tryLoginCount >= 4 Then
                         deactivate(empid)
                         MessageBox.Show("Deactivate", uid)
@@ -573,6 +612,7 @@ Category("Adminstrator Rights")> _
                     End If
 
                     tryLoginCount = tryLoginCount + 1
+                    'insert Action in "EventList' database table on Unsucessfull Login
                     evntlist.insertscadaevent(-1, "INVALID LOGIN", "USER ID+" + uid, "USER ID+" + uid, "", "", "", "", "", "", "", "", "Audittrail")
                     RaiseEvent Logon(2, "Default Login", 2)
                     btnLReg.Visible = False
@@ -594,17 +634,22 @@ Category("Adminstrator Rights")> _
 
     End Sub
 
+    'this sub Maintain visibility of 'Login_Control' if checkbox is clicked then After succesful login this 'Login_Control' UI is disappiar other wise not 
     Private Sub checkvalueforlogincheckbox()
+        'Maintain text file on Local computer in given Path
+        'Create a file name with chk.txt
+        'check first to Exist of given file, If not Exist then Create One
         If (Not System.IO.Directory.Exists("c:\Chkdetail\")) Then
 
             System.IO.Directory.CreateDirectory("c:\Chkdetail\")
 
         End If
         Dim FILE_NAME As String = "c:\Chkdetail\chk.txt"
-      
+
+
+        'read the file if there is 1 then checkbox si checked
+
         If System.IO.File.Exists("c:\Chkdetail\chk.txt") = True Then
-
-
             Dim b As New System.IO.StreamReader(FILE_NAME)
             Dim temp = b.ReadToEnd
             If temp = "1" Then
@@ -613,7 +658,7 @@ Category("Adminstrator Rights")> _
                 CheckBox1.Checked = False
             End If
             b.Close()
-          
+
         Else
             Dim w As New System.IO.StreamWriter(FILE_NAME, True)
 
@@ -631,16 +676,12 @@ Category("Adminstrator Rights")> _
 
     Private Sub CheckBox1_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles CheckBox1.Click
         Dim FILE_NAME As String = "c:\Chkdetail\chk.txt"
-        '  MsgBox(FILE_NAME)
-        If System.IO.File.Exists("c:\Chkdetail\chk.txt") = True Then
 
+        If System.IO.File.Exists("c:\Chkdetail\chk.txt") = True Then
 
             Dim b As New System.IO.StreamReader(FILE_NAME)
 
-            '-- 1 means checkbox selected 0 means not selected
-
-
-
+            'if Checked box is checked then write 1 in cht.txt file otheriwse 0
 
             Dim temp = b.ReadToEnd
             b.Close()
@@ -656,8 +697,6 @@ Category("Adminstrator Rights")> _
 
             w.Close()
 
-            '            Do While i < 31
-            '                fo = (b.ReadLine)
         Else
             MsgBox(FILE_NAME)
             Dim w As New System.IO.StreamWriter(FILE_NAME, True)
