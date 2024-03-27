@@ -1,5 +1,6 @@
 ﻿Imports System.Data.SqlClient
 
+'provide sql server connection
 Public Class SqlClass
     Public Shared server = ".\SQLEXPRESS"
     Public Shared dbname = "ScadaNewDB"

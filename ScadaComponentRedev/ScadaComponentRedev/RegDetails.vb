@@ -146,7 +146,7 @@ Public Class RegDetails
         End Try
     End Sub
 
-    Private Sub CheckBox1_CheckedChanged(sender As System.Object, e As System.EventArgs)
+    Private Sub CheckBox1_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles CheckBox1.CheckedChanged
         If CheckBox1.Checked = True Then
             txtcpass.Enabled = True
             txtpass.Enabled = True
@@ -288,7 +288,26 @@ Public Class RegDetails
         End Try
         sql.scn1.Close()
     End Sub
+    Private Sub txtcpass_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtcpass.TextChanged
+        If txtpass.Text = txtcpass.Text Then
+            Label24.Text = ""
+        Else
+            Label24.Text = "Password and Confirm Password do not match"
+        End If
+    End Sub
 
+    Private Sub txtpass_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtpass.TextChanged
+        If txtpass.Text.Length < Login_Register.passlen Then
+            Label21.ForeColor = Color.Red
+
+        Else
+            Dim reg As New register
+            If reg.IsAlphaNum(txtpass.Text) = True Then
+                Label21.ForeColor = Color.Silver
+            End If
+        End If
+
+    End Sub
     Private Function IsAlphaNum(ByVal strInputText As String) As Boolean
 
         Return System.Text.RegularExpressions.Regex.IsMatch(strInputText, "^.*(?=.*[a-zA-Z])(?=.*\d)(?=.*[\.@_-`~!@#$%^&*()_+={}\[\]\\|:;""'<>,.?/-]){" & Login_Register.passLen & ",50}.*$")

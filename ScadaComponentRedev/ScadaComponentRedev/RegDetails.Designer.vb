@@ -23,6 +23,7 @@ Partial Class RegDetails
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Label24 = New System.Windows.Forms.Label()
         Me.Label21 = New System.Windows.Forms.Label()
         Me.Label22 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
@@ -49,6 +50,7 @@ Partial Class RegDetails
         '
         'Panel1
         '
+        Me.Panel1.Controls.Add(Me.Label24)
         Me.Panel1.Controls.Add(Me.Label21)
         Me.Panel1.Controls.Add(Me.Label22)
         Me.Panel1.Controls.Add(Me.Label7)
@@ -73,6 +75,16 @@ Partial Class RegDetails
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(385, 575)
         Me.Panel1.TabIndex = 0
+        '
+        'Label24
+        '
+        Me.Label24.AutoSize = True
+        Me.Label24.ForeColor = System.Drawing.Color.Red
+        Me.Label24.Location = New System.Drawing.Point(44, 384)
+        Me.Label24.Name = "Label24"
+        Me.Label24.Size = New System.Drawing.Size(10, 13)
+        Me.Label24.TabIndex = 19
+        Me.Label24.Text = " "
         '
         'Label21
         '
@@ -191,7 +203,7 @@ Partial Class RegDetails
         Me.Button1.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.ForeColor = System.Drawing.Color.White
-        Me.Button1.Location = New System.Drawing.Point(33, 453)
+        Me.Button1.Location = New System.Drawing.Point(33, 462)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(140, 36)
         Me.Button1.TabIndex = 7
@@ -203,7 +215,7 @@ Partial Class RegDetails
         Me.Button2.BackColor = System.Drawing.Color.Red
         Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button2.ForeColor = System.Drawing.Color.White
-        Me.Button2.Location = New System.Drawing.Point(206, 453)
+        Me.Button2.Location = New System.Drawing.Point(206, 462)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(147, 36)
         Me.Button2.TabIndex = 6
@@ -215,7 +227,7 @@ Partial Class RegDetails
         Me.Button4.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.Button4.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button4.ForeColor = System.Drawing.Color.White
-        Me.Button4.Location = New System.Drawing.Point(33, 400)
+        Me.Button4.Location = New System.Drawing.Point(33, 409)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(320, 34)
         Me.Button4.TabIndex = 5
@@ -314,4 +326,5 @@ Partial Class RegDetails
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents Label21 As System.Windows.Forms.Label
     Friend WithEvents Label22 As System.Windows.Forms.Label
+    Friend WithEvents Label24 As System.Windows.Forms.Label
 End Class

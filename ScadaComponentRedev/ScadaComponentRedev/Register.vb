@@ -195,7 +195,6 @@ Public Class Register
                 sqlcmd1.ExecuteNonQuery()
                 sql.scn3.Close()
                 Return True
-                '     MessageBox.Show("Password Successfully changed!!!", "ChangePassword")
             End If
         End If
         sql.scn2.Close()
