@@ -9,7 +9,7 @@ Public Class SqlClass
     Public Shared px As Boolean
     Public Shared sqlcon As New SqlConnection
     Public cn1, cn2, cn3, cn4, cn5, cnb As SqlConnection
-    Public Shared cnn1 As SqlConnection
+    Public Shared cnn1, cnn2, cnn3, cnn4, cnn5, rightcnn As SqlConnection
     Public scn1, scn2, scn3, scn4, scn5 As SqlConnection
     Public Shared database As String = ""
 
@@ -38,18 +38,7 @@ Public Class SqlClass
         End Try
 
     End Sub
-    Public Sub scon2()
-       
-        sqlcon = New SqlConnection With {.ConnectionString = "server=" & server & "; Database= " & dbname & ";user id= " & dbid & ";password=" & dbpass & ";"}
-
-        Try
-            scn2 = sqlcon
-            scn2.Open()
-        Catch ex As Exception
-            MsgBox("Can not open connection ! -" & ex.Message)
-        End Try
-
-    End Sub
+   
 
     Sub scon3()
         sqlcon = New SqlConnection With {.ConnectionString = "server=" & server & "; Database= " & dbname & ";user id= " & dbid & ";password=" & dbpass & ";"}
@@ -87,6 +76,80 @@ Public Class SqlClass
         End Try
 
     End Sub
+    Public Sub con3()
+        sqlcon = New SqlConnection With {.ConnectionString = "server=" & server & "; Database= " & dbname & ";user id= " & dbid & ";password=" & dbpass & ";"}
+
+        Try
+            cnn3 = sqlcon
+            cnn3.Open()
+        Catch ex As Exception
+            MsgBox("Can not open connection ! -" & ex.Message)
+        End Try
+
+    End Sub
+    Public Sub scon2()
+       
+        sqlcon = New SqlConnection With {.ConnectionString = "server=" & server & "; Database= " & dbname & ";user id= " & dbid & ";password=" & dbpass & ";"}
+
+        
+        Try
+            scn2 = sqlcon
+            scn2.Open()
+        Catch ex As Exception
+            MsgBox("Can not open connection ! -" & ex.Message)
+        End Try
+
+    End Sub
+    Public Sub con2()
+     
+        sqlcon = New SqlConnection With {.ConnectionString = "server=" & server & "; Database= " & dbname & ";user id= " & dbid & ";password=" & dbpass & ";"}
+
+        Try
+            cnn2 = sqlcon
+            cnn2.Open()
+        Catch ex As Exception
+            MsgBox("Can not open connection ! -" & ex.Message)
+        End Try
+    End Sub
+
+    Public Sub conn3()
+      
+        sqlcon = New SqlConnection With {.ConnectionString = "server=" & server & "; Database= " & dbname & ";user id= " & dbid & ";password=" & dbpass & ";"}
+        Try
+            cn3 = sqlcon
+            cn3.Open()
+        Catch ex As Exception
+            MsgBox("Can not open connection ! -" & ex.Message)
+        End Try
+
+    End Sub
+
+    Public Shared Sub rightcon()
+       
+        If rightcnn Is Nothing Then
+            rightcnn = New SqlConnection With {.ConnectionString = "server=" & server & "; Database= " & dbname & ";user id= " & dbid & ";password=" & dbpass & ";"}
+
+        End If
+        Try
+            If rightcnn.State <> ConnectionState.Open Then
+                rightcnn.Open()
+            End If
+        Catch ex As Exception
+        End Try
+    End Sub
+
+    Public Sub conn2()
+       
+        sqlcon = New SqlConnection With {.ConnectionString = "server=" & server & "; Database= " & dbname & ";user id= " & dbid & ";password=" & dbpass & ";"}
+        Try
+            cn2 = sqlcon
+            cn2.Open()
+        Catch ex As Exception
+            MsgBox("Can not open connection ! -" & ex.Message)
+        End Try
+
+    End Sub
+
     Public Shared Function AES_Encrypt(ByVal input As String, ByVal pass As String) As String
         Dim AES As New System.Security.Cryptography.RijndaelManaged
         Dim Hash_AES As New System.Security.Cryptography.MD5CryptoServiceProvider

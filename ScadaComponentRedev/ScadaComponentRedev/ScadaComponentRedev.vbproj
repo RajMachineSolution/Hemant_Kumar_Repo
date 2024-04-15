@@ -72,11 +72,24 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="buttonproperty.Designer.vb">
+      <DependentUpon>buttonproperty.vb</DependentUpon>
+    </Compile>
+    <Compile Include="buttonproperty.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ChangePassword.Designer.vb">
       <DependentUpon>ChangePassword.vb</DependentUpon>
     </Compile>
     <Compile Include="ChangePassword.vb">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Class1.vb" />
+    <Compile Include="componentTest.Designer.vb">
+      <DependentUpon>componentTest.vb</DependentUpon>
+    </Compile>
+    <Compile Include="componentTest.vb">
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="EventList.vb" />
     <Compile Include="Login.Designer.vb">
@@ -112,6 +125,18 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Numeric_Entry.Designer.vb">
+      <DependentUpon>Numeric_Entry.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Numeric_Entry.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Numeric_Keyboard.Designer.vb">
+      <DependentUpon>Numeric_Keyboard.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Numeric_Keyboard.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="RegDetails.Designer.vb">
       <DependentUpon>RegDetails.vb</DependentUpon>
     </Compile>
@@ -134,8 +159,14 @@
     <Compile Include="VariableClass.vb" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="buttonproperty.resx">
+      <DependentUpon>buttonproperty.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ChangePassword.resx">
       <DependentUpon>ChangePassword.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="componentTest.resx">
+      <DependentUpon>componentTest.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.vb</DependentUpon>
@@ -152,6 +183,12 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Numeric_Entry.resx">
+      <DependentUpon>Numeric_Entry.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Numeric_Keyboard.resx">
+      <DependentUpon>Numeric_Keyboard.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RegDetails.resx">
       <DependentUpon>RegDetails.vb</DependentUpon>
     </EmbeddedResource>
@@ -163,6 +200,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>

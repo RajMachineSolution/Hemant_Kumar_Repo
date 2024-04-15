@@ -1,17 +1,23 @@
-﻿Imports scadacomponent
+﻿
 
 Public Class Form1
 
+    
+
+    Public Shared logincontrol As Boolean = True ' if logincontrol included make it true else false
+    Public Shared defaultloginExist As Boolean = True 'if default user given make it true else false
+    Private objMutex As System.Threading.Mutex
+
+    Public Shared frmobj(10) As Form ' object of form used as popup
+
+
     Private Sub Form1_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
-      
+
 
     End Sub
 
-    Private Sub Timer1_Tick(sender As System.Object, e As System.EventArgs) Handles Timer1.Tick
-        If Login_Register.levelname <> "" Then
-            Label1.Text = Login_Register.levelname
-        End If
-    End Sub
+    
+
 
 
 End Class

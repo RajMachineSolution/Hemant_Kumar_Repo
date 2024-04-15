@@ -19,8 +19,12 @@
             Label2.Text = "NA"
         Else
             Label1.Text = "Hello " & fname
-            Label2.Text = Login_Register.levelName
+            Label2.Text = "Level : " & Login_Register.levelName
         End If
         lgn.loginsuccess(empid, fname, plevel)
+    End Sub
+
+    Private Sub LoginForm_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+
     End Sub
 End Class

@@ -209,6 +209,7 @@ Partial Class RegDetails
         Me.Button1.TabIndex = 7
         Me.Button1.Text = "Active"
         Me.Button1.UseVisualStyleBackColor = False
+        Me.Button1.Visible = False
         '
         'Button2
         '
@@ -221,6 +222,7 @@ Partial Class RegDetails
         Me.Button2.TabIndex = 6
         Me.Button2.Text = "Deactive"
         Me.Button2.UseVisualStyleBackColor = False
+        Me.Button2.Visible = False
         '
         'Button4
         '

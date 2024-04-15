@@ -31,9 +31,10 @@ Partial Class LoginForm
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(81, 9)
+        Me.Label1.Location = New System.Drawing.Point(108, 11)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(88, 18)
+        Me.Label1.Size = New System.Drawing.Size(108, 24)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "UserName"
         '
@@ -41,25 +42,23 @@ Partial Class LoginForm
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(81, 37)
+        Me.Label2.Location = New System.Drawing.Point(108, 46)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(47, 18)
+        Me.Label2.Size = New System.Drawing.Size(60, 24)
         Me.Label2.TabIndex = 1
         Me.Label2.Text = "Level"
         '
         'Login_Register1
         '
         Me.Login_Register1.AdminstratorRightsLevel = ""
-
-
         Me.Login_Register1.database = ""
         Me.Login_Register1.database_name = "ScadaNewDB"
         Me.Login_Register1.Database_Password = "rmsview"
         Me.Login_Register1.Database_UserID = "rmsview"
         Me.Login_Register1.EventName = New String(-1) {}
-
-        Me.Login_Register1.Location = New System.Drawing.Point(11, 67)
-        Me.Login_Register1.Margin = New System.Windows.Forms.Padding(2)
+        Me.Login_Register1.Location = New System.Drawing.Point(15, 82)
+        Me.Login_Register1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Login_Register1.MinimumPasswordLength = 0
         Me.Login_Register1.MinimumUseridLength = 0
         Me.Login_Register1.Name = "Login_Register1"
@@ -72,18 +71,19 @@ Partial Class LoginForm
         Me.Login_Register1.Previous_password_Checkcount = 0
         Me.Login_Register1.RecordloginAction = False
         Me.Login_Register1.Server_Name = ".\SQLEXPRESS"
-        Me.Login_Register1.Size = New System.Drawing.Size(303, 347)
+        Me.Login_Register1.Size = New System.Drawing.Size(404, 427)
         Me.Login_Register1.TabIndex = 2
         Me.Login_Register1.Userlevel = New String(-1) {}
         '
         'LoginForm
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(339, 426)
+        Me.ClientSize = New System.Drawing.Size(452, 524)
         Me.Controls.Add(Me.Login_Register1)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "LoginForm"
         Me.Text = "LoginForm"
         Me.ResumeLayout(False)

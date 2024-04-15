@@ -4,7 +4,6 @@ C:\Users\heman\onedrive\documents\visual studio 2010\Projects\WindowsApplication
 C:\Users\heman\onedrive\documents\visual studio 2010\Projects\WindowsApplication3\WindowsApplication3\bin\Debug\WindowsApplication3.xml
 C:\Users\heman\onedrive\documents\visual studio 2010\Projects\WindowsApplication3\WindowsApplication3\bin\Debug\scadacomponent.dll
 C:\Users\heman\onedrive\documents\visual studio 2010\Projects\WindowsApplication3\WindowsApplication3\bin\Debug\AxInterop.ActUtlTypeLib.dll
-C:\Users\heman\onedrive\documents\visual studio 2010\Projects\WindowsApplication3\WindowsApplication3\bin\Debug\Interop.ActUtlTypeLib.dll
 C:\Users\heman\onedrive\documents\visual studio 2010\Projects\WindowsApplication3\WindowsApplication3\bin\Debug\scadacomponent.pdb
 C:\Users\heman\onedrive\documents\visual studio 2010\Projects\WindowsApplication3\WindowsApplication3\bin\Debug\scadacomponent.xml
 C:\Users\heman\onedrive\documents\visual studio 2010\Projects\WindowsApplication3\WindowsApplication3\obj\x86\Debug\WindowsApplication3.vbprojResolveAssemblyReference.cache
@@ -14,3 +13,8 @@ C:\Users\heman\onedrive\documents\visual studio 2010\Projects\WindowsApplication
 C:\Users\heman\onedrive\documents\visual studio 2010\Projects\WindowsApplication3\WindowsApplication3\obj\x86\Debug\WindowsApplication3.exe
 C:\Users\heman\onedrive\documents\visual studio 2010\Projects\WindowsApplication3\WindowsApplication3\obj\x86\Debug\WindowsApplication3.xml
 C:\Users\heman\onedrive\documents\visual studio 2010\Projects\WindowsApplication3\WindowsApplication3\obj\x86\Debug\WindowsApplication3.pdb
+C:\Users\heman\onedrive\documents\visual studio 2010\Projects\WindowsApplication3\WindowsApplication3\bin\Debug\ScadaComponentRedev.dll
+C:\Users\heman\onedrive\documents\visual studio 2010\Projects\WindowsApplication3\WindowsApplication3\bin\Debug\ScadaComponentRedev.pdb
+C:\Users\heman\onedrive\documents\visual studio 2010\Projects\WindowsApplication3\WindowsApplication3\bin\Debug\ScadaComponentRedev.xml
+C:\Users\heman\onedrive\documents\visual studio 2010\Projects\WindowsApplication3\WindowsApplication3\obj\x86\Debug\Interop.ActUtlTypeLib.dll
+C:\Users\heman\onedrive\documents\visual studio 2010\Projects\WindowsApplication3\WindowsApplication3\obj\x86\Debug\WindowsApplication3.vbproj.ResolveComReference.cache

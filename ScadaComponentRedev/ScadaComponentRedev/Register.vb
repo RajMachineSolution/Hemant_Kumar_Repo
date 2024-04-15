@@ -36,7 +36,7 @@ Public Class Register
                         Dim sqlcmd As SqlCommand = New SqlCommand(query, sql.scn2)
                         Dim tempempid = DirectCast(sqlcmd.ExecuteScalar(), Integer)
 
-                        changepasswordcondition(tempempid, encryptpass)
+
                         sqlcmd.Dispose()
                         sql.scn2.Close()
                         MessageBox.Show("Successfully registered!!!", "Register")
@@ -168,61 +168,5 @@ Public Class Register
         Me.Close()
     End Sub
 
-    Function changepasswordcondition(empid As String, temp_pass As String) As Object
-        If Login_Register.passPrevoiusCheck = 0 Then
-            Exit Function
-        End If
-        Dim query = "select count(*) from passwordlist where empid='" & empid & "' "
-        sql.scon2()
-        Dim sqlcmd As SqlCommand = New SqlCommand(query, sql.scn2)
-        Dim reader As SqlDataReader = sqlcmd.ExecuteReader
-        Dim temp_pass_count = 0
-        If reader.Read Then
-            temp_pass_count = reader.Item(0)
-        End If
-        reader.Close()
-        If temp_pass_count < Login_Register.passPrevoiusCheck Then
-            Dim temppre = previous_password_check(temp_pass, empid)
-            If temppre = True Then
-                Return True
-            End If
-        Else
-            Dim temppre = previous_password_check(temp_pass, empid)
-            If temppre = True Then
-                Dim q2 = "delete from passwordlist where empid='" & empid & "' and sno=(select top 1 sno from passwordlist where empid='" & empid & "' order by  CONVERT(varchar, DecryptByKey(date)),sno asc)"
-                sql.scon3()
-                Dim sqlcmd1 As SqlCommand = New SqlCommand(q2, sql.scn3)
-                sqlcmd1.ExecuteNonQuery()
-                sql.scn3.Close()
-                Return True
-            End If
-        End If
-        sql.scn2.Close()
-    End Function
-
-    Public Function previous_password_check(ByVal temp_pass As String, ByVal empid As Integer) As Boolean
-        sql.scon4()
-        Dim q1 = "select empid from passwordlist where password='" & temp_pass & "' and empid='" & empid & "'"
-        Dim sqlcmd As SqlCommand = New SqlCommand(q1, sql.scn4)
-        Dim reader As SqlDataReader = sqlcmd.ExecuteReader
-        If reader.Read Then
-            MsgBox("Please enter different password can't use previously " & Login_Register.passprevoiuscheck & " used password")
-            Return False
-        Else
-            q1 = "OPEN SYMMETRIC KEY SymmetricKey1 DECRYPTION BY CERTIFICATE Certificate1 insert into passwordlist(empid,password,date) values('" & empid & "','" & temp_pass & "', EncryptByKey( Key_GUID('SymmetricKey1'), CONVERT(varchar,'" & variableclass.datee & "') ))"
-            sql.scon3()
-            Dim sqlcmd1 As SqlCommand = New SqlCommand(q1, sql.scn3)
-            sqlcmd1.ExecuteNonQuery()
-            q1 = "OPEN SYMMETRIC KEY SymmetricKey1 DECRYPTION BY CERTIFICATE Certificate1 update employeeinfo set password='" & temp_pass & "' where empid='" & empid & "'"
-            sql.scon3()
-            sqlcmd1 = New SqlCommand(q1, sql.scn3)
-            sqlcmd1.ExecuteNonQuery()
-            sql.scn3.Close()
-            Return True
-        End If
-        sql.scn4.Close()
-    End Function
-
-   
 
 End Class

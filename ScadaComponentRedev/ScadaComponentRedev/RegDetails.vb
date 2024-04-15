@@ -170,7 +170,7 @@ Public Class RegDetails
         Label22.Text = ""
         txtcpass.Text = ""
         txtcpass.Text = ""
-        Label22.Text = "*Password- Alphanumeric and Special and minimum " & Login_Register.passLen & " characters"
+        Label21.Text = "*Password- Alphanumeric and Special and minimum " & Login_Register.passLen & " characters"
     End Sub
 
     'Button('Update Details') is used to update user details
@@ -184,30 +184,8 @@ Public Class RegDetails
         If CheckBox1.Checked = True Then
             If txtpass.Text = txtcpass.Text And txtpass.Text.Trim.Length >= Login_Register.passLen And (IsAlphaNum(txtpass.Text) = True) Then
 
-                If Login_Register.passPrevoiusCheck = 0 Then
+                query = "OPEN SYMMETRIC KEY SymmetricKey1 DECRYPTION BY CERTIFICATE Certificate1 update employeeinfo set fname=EncryptByKey( Key_GUID('SymmetricKey1'), CONVERT(varchar,'" & TextBox4.Text & "') ),plevel='" & ComboBox2.SelectedValue & "',password=EncryptByKey( Key_GUID('SymmetricKey1'),CONVERT(varchar,'" & txtpass.Text & "')) where CONVERT(varchar, DecryptByKey(userid)) ='" & tempuserid & "'"
 
-                    query = "OPEN SYMMETRIC KEY SymmetricKey1 DECRYPTION BY CERTIFICATE Certificate1 update employeeinfo set fname=EncryptByKey( Key_GUID('SymmetricKey1'), CONVERT(varchar,'" & TextBox4.Text & "') ),plevel='" & ComboBox2.SelectedValue & "',password=EncryptByKey( Key_GUID('SymmetricKey1'),CONVERT(varchar,'" & txtpass.Text & "')) where CONVERT(varchar, DecryptByKey(userid)) ='" & tempuserid & "'"
-
-                Else
-                    sql.scon3()
-                    'fetch empid where userid is tempuserid
-                    Dim q1 = "OPEN SYMMETRIC KEY SymmetricKey1 DECRYPTION BY CERTIFICATE Certificate1 select empid from  employeeinfo where CONVERT(varchar, DecryptByKey(userid)) ='" & tempuserid & "'"
-                    Dim cmd5 As SqlCommand = New SqlCommand(q1, sql.scn3)
-                    Dim READER As SqlDataReader = cmd5.ExecuteReader()
-                    Dim tempempid = 0
-                    If READER.Read Then
-                        tempempid = READER.Item(0)
-                    End If
-                    READER.Close()
-                    sql.scn3.Close()
-                    Dim reg As New Register
-                    Dim tempreg = reg.changepasswordcondition(tempempid, SqlClass.AES_Encrypt(txtpass.Text, "r1m2s3"))
-                    If tempreg = True Then
-                        query = "OPEN SYMMETRIC KEY SymmetricKey1 DECRYPTION BY CERTIFICATE Certificate1 update employeeinfo set fname=EncryptByKey( Key_GUID('SymmetricKey1'), CONVERT(varchar,'" & TextBox4.Text & "') ),plevel='" & ComboBox2.SelectedValue & "' where CONVERT(varchar, DecryptByKey(userid)) ='" & tempuserid & "'"
-                    Else
-                        Exit Sub
-                    End If
-                End If
             Else
                 Exit Sub
             End If
@@ -297,11 +275,11 @@ Public Class RegDetails
     End Sub
 
     Private Sub txtpass_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtpass.TextChanged
-        If txtpass.Text.Length < Login_Register.passlen Then
+        If txtpass.Text.Length <= Login_Register.passLen Then
             Label21.ForeColor = Color.Red
 
         Else
-            Dim reg As New register
+            Dim reg As New Register
             If reg.IsAlphaNum(txtpass.Text) = True Then
                 Label21.ForeColor = Color.Silver
             End If

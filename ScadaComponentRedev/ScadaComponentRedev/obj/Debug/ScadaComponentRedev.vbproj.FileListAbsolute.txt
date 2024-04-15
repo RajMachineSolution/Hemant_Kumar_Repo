@@ -13,4 +13,8 @@ C:\Users\heman\onedrive\documents\visual studio 2010\Projects\ScadaComponentRede
 C:\Users\heman\onedrive\documents\visual studio 2010\Projects\ScadaComponentRedev\ScadaComponentRedev\obj\Debug\ScadaComponentRedev.RegisterDetails.resources
 C:\Users\heman\onedrive\documents\visual studio 2010\Projects\ScadaComponentRedev\ScadaComponentRedev\bin\Debug\ScadaComponentRedev.dll
 C:\Users\heman\onedrive\documents\visual studio 2010\Projects\ScadaComponentRedev\ScadaComponentRedev\obj\Debug\ScadaComponentRedev.Login.resources
+C:\Users\heman\onedrive\documents\visual studio 2010\Projects\ScadaComponentRedev\ScadaComponentRedev\obj\Debug\ScadaComponentRedev.Numeric_Entry.resources
+C:\Users\heman\onedrive\documents\visual studio 2010\Projects\ScadaComponentRedev\ScadaComponentRedev\obj\Debug\ScadaComponentRedev.buttonproperty.resources
+C:\Users\heman\onedrive\documents\visual studio 2010\Projects\ScadaComponentRedev\ScadaComponentRedev\obj\Debug\ScadaComponentRedev.Numeric_Keyboard.resources
+C:\Users\heman\onedrive\documents\visual studio 2010\Projects\ScadaComponentRedev\ScadaComponentRedev\obj\Debug\ScadaComponentRedev.componentTest.resources
 C:\Users\heman\onedrive\documents\visual studio 2010\Projects\ScadaComponentRedev\ScadaComponentRedev\obj\Debug\ScadaComponentRedev.vbprojResolveAssemblyReference.cache
